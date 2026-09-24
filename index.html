@@ -39,12 +39,13 @@
                 extend: {
                     colors: {
                         tech: {
-                            bg: '#0c0c0e',
-                            card: '#141417',
-                            border: '#27272a',
-                            subtle: '#1f1f23',
-                            accent: '#3b82f6',
-                            glow: '#2563eb'
+                            bg: '#080d1a',       /* Fundo profundo cibernético */
+                            card: '#0f172a',     /* Cartões em azul escuro espacial */
+                            border: '#1e293b',   /* Bordas sutis em azul elétrico escuro */
+                            subtle: '#131c31',   /* Fundo secundário */
+                            cyanNeon: '#00E5FF', /* Ciano Neon brilhante */
+                            electric: '#2563EB', /* Azul elétrico */
+                            purpleNeon: '#8B5CF6'/* Roxo / Violeta espacial */
                         }
                     },
                     fontFamily: {
@@ -58,24 +59,25 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-tech-bg text-zinc-100 min-h-screen pb-28 selection:bg-blue-600 selection:text-white">
+<body class="bg-tech-bg text-zinc-100 min-h-screen pb-28 selection:bg-cyan-500 selection:text-slate-950">
 
-    <div class="bg-blue-950/40 border-b border-blue-500/20 py-2 px-4 text-center text-xs text-slate-300">
-        <i class="fa-solid fa-map-location-dot text-blue-400 mr-1.5"></i> Atendimento presencial focado em <strong>Itahum e região</strong>. Para projetos externos, consulte a taxa de deslocamento.
+    <div class="bg-blue-950/60 border-b border-cyan-500/20 py-2 px-4 text-center text-xs text-slate-300">
+        <i class="fa-solid fa-map-location-dot text-cyan-400 mr-1.5"></i> Atendimento presencial focado em <strong>Itahum e região</strong>. Para projetos externos, consulte a taxa de deslocamento.
     </div>
 
     <header class="sticky top-0 z-30 glass-header border-b border-tech-border transition-all duration-200">
         <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-zinc-900 overflow-hidden border border-blue-600/50 shadow-md flex-shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-tech-card overflow-hidden border border-cyan-500/40 shadow-md shadow-cyan-950/30 flex-shrink-0">
                     <img src="assets/img/logo.jpng" alt="Logo Tavinn TI" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=150&auto=format&fit=crop&q=80';">
                 </div>
                 <div>
-                    <h1 class="font-display font-bold text-base md:text-lg leading-tight text-white tracking-wide flex items-center gap-2">
-                        Tavinn TI <span class="hidden sm:inline-block text-[10px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-0.5 rounded-full">Pro Tech</span>
+                    <h1 class="font-display font-bold text-base md:text-lg leading-tight tracking-wide flex items-center gap-2">
+                        <span class="brand-gradient-text">Tavinn TI</span> 
+                        <span class="hidden sm:inline-block text-[10px] font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 px-2 py-0.5 rounded-full">Pro Tech</span>
                     </h1>
                     <span id="headerStatus" class="text-[11px] text-zinc-400 flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Atendimento & Suporte Técnico
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_#00E5FF]"></span> Atendimento & Suporte Técnico
                     </span>
                 </div>
             </div>
@@ -87,41 +89,42 @@
                 </button>
 
                 <div class="flex items-center bg-tech-subtle border border-tech-border rounded-xl p-1 text-xs font-semibold">
-                    <span class="px-2 py-1 bg-blue-600 text-white rounded-lg shadow">PT</span>
+                    <span class="px-2 py-1 bg-cyan-600 text-white rounded-lg shadow">PT</span>
                     <a href="en/" class="px-2 py-1 text-zinc-400 hover:text-white transition-colors">EN</a>
                     <a href="es/" class="px-2 py-1 text-zinc-400 hover:text-white transition-colors">ES</a>
                 </div>
                 
-                <a href="https://wa.me/5567999584289" target="_blank" class="hidden sm:flex items-center gap-2 text-xs bg-tech-subtle hover:bg-zinc-800 text-zinc-200 px-3 py-2 rounded-xl border border-tech-border transition-colors">
-                    <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
-                    <span>(67) 99958-4289</span>
+                <!-- Link do Instagram substituindo o WhatsApp no Header -->
+                <a href="https://www.instagram.com/tavinn.ti?stkn=Y3gzMmxiNnM1amJr" target="_blank" class="hidden sm:flex items-center gap-2 text-xs bg-tech-subtle hover:bg-zinc-800 text-zinc-200 px-3 py-2 rounded-xl border border-tech-border transition-colors">
+                    <i class="fa-brands fa-instagram text-pink-400 text-sm"></i>
+                    <span>@tavinn.ti</span>
                 </a>
                 
                 <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-tech-subtle hover:bg-zinc-800 border border-tech-border text-zinc-200 transition-colors" aria-label="Abrir sacola">
                     <i class="fa-solid fa-basket-shopping text-base"></i>
-                    <span id="headerCartBadge" class="hidden absolute -top-1.5 -right-1.5 bg-blue-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-tech-bg">0</span>
+                    <span id="headerCartBadge" class="hidden absolute -top-1.5 -right-1.5 bg-cyan-500 text-slate-950 font-extrabold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-tech-bg">0</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <section class="relative bg-gradient-to-b from-zinc-900/80 to-tech-bg border-b border-tech-border">
-        <div class="h-32 md:h-44 w-full bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80');">
+    <section class="relative bg-gradient-to-b from-blue-950/30 to-tech-bg border-b border-tech-border">
+        <div class="h-32 md:h-44 w-full bg-cover bg-center relative opacity-60" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80');">
             <div class="absolute inset-0 bg-gradient-to-t from-tech-bg via-tech-bg/70 to-transparent"></div>
         </div>
 
         <div class="max-w-4xl mx-auto px-4 -mt-14 relative z-10 pb-4">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                 <div class="flex items-end gap-4">
-                    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-tech-card border-2 border-blue-600 shadow-2xl p-1 flex-shrink-0 relative overflow-hidden group">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-tech-card border-2 border-cyan-500/50 shadow-2xl p-1 flex-shrink-0 relative overflow-hidden group">
                         <img src="assets/img/logo.jpng" alt="Tavinn TI Logo" class="w-full h-full object-cover rounded-xl" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=300&auto=format&fit=crop&q=80';">
                     </div>
                     
                     <div>
                         <div class="flex items-center gap-2 flex-wrap">
                             <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Tavinn TI - Infraestrutura & Redes</h2>
-                            <span class="bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1">
-                                <i class="fa-solid fa-circle text-[8px]"></i> Aberto para Atendimento
+                            <span class="bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 text-xs font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                                <i class="fa-solid fa-circle text-[8px] text-cyan-400 animate-pulse"></i> Aberto para Atendimento
                             </span>
                         </div>
                         <p class="text-xs text-zinc-400 mt-1">Câmeras CFTV, Redes Estruturadas, Hardware, Servidores e Suporte Especializado.</p>
@@ -138,7 +141,7 @@
             <div class="mt-5">
                 <div class="relative">
                     <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-sm"></i>
-                    <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Buscar no catálogo... (ex: Câmera PTZ, Ryzen, Formatação, SSD)" class="w-full bg-tech-card border border-tech-border focus:border-blue-600 focus:ring-1 focus:ring-blue-600 rounded-xl pl-10 pr-10 py-2.5 text-sm text-zinc-100 placeholder-zinc-500 transition-all outline-none">
+                    <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Buscar no catálogo... (ex: Câmera PTZ, Ryzen, Formatação, SSD)" class="w-full bg-tech-card border border-tech-border focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 rounded-xl pl-10 pr-10 py-2.5 text-sm text-zinc-100 placeholder-zinc-500 transition-all outline-none">
                     <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 text-xs p-1">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
@@ -150,7 +153,7 @@
     <nav class="sticky top-[57px] z-20 bg-tech-bg/95 backdrop-blur-md border-b border-tech-border shadow-lg">
         <div class="max-w-4xl mx-auto px-4">
             <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-3 scroll-smooth" id="categoryTabs">
-                <button onclick="filterCategory('todos')" data-cat="todos" class="category-btn active bg-blue-600 text-white font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all shadow-lg shadow-blue-950/50">
+                <button onclick="filterCategory('todos')" data-cat="todos" class="category-btn active bg-cyan-600 text-slate-950 font-bold text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all shadow-lg shadow-cyan-950/50">
                     <i class="fa-solid fa-border-all mr-1.5"></i> Todos
                 </button>
                 <button onclick="filterCategory('cameras')" data-cat="cameras" class="category-btn bg-tech-card hover:bg-zinc-800 text-zinc-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
@@ -179,65 +182,65 @@
         <section id="section-destaques" class="menu-section">
             <div class="flex items-center justify-between mb-3">
                 <h3 class="font-display font-bold text-lg text-white flex items-center gap-2">
-                    <span class="text-blue-500 text-xl">🔥</span> Destaques & Ofertas
+                    <span class="text-cyan-400 text-xl">🔥</span> Destaques & Ofertas
                 </h3>
                 <span class="text-xs text-zinc-500">Mais procurados</span>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="highlightsContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="highlightsContainer"></div>
         </section>
 
         <section id="section-cameras" class="menu-section pt-2">
             <div class="border-b border-tech-border pb-2 mb-4">
                 <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                    <span class="text-blue-500">📹</span> Câmeras de Segurança & CFTV
+                    <span class="text-cyan-400">📹</span> Câmeras de Segurança & CFTV
                 </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="camerasContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="camerasContainer"></div>
         </section>
 
         <section id="section-hardware" class="menu-section pt-2">
             <div class="border-b border-tech-border pb-2 mb-4">
                 <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                    <span class="text-blue-500">🖥️</span> Peças de Computador & Hardware
+                    <span class="text-cyan-400">🖥️</span> Peças de Computador & Hardware
                 </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="hardwareContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="hardwareContainer"></div>
         </section>
 
         <section id="section-acessorios" class="menu-section pt-2">
             <div class="border-b border-tech-border pb-2 mb-4">
                 <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                    <span class="text-blue-500">🎮</span> Acessórios para Gabinete & Modding
+                    <span class="text-cyan-400">🎮</span> Acessórios para Gabinete & Modding
                 </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="acessoriosContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="acessoriosContainer"></div>
         </section>
 
         <section id="section-perifericos" class="menu-section pt-2">
             <div class="border-b border-tech-border pb-2 mb-4">
                 <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                    <span class="text-blue-500">🖱️</span> Periféricos Gamer & Escritório
+                    <span class="text-cyan-400">🖱️</span> Periféricos Gamer & Escritório
                 </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="perifericosContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="perifericosContainer"></div>
         </section>
 
         <section id="section-monitores" class="menu-section pt-2">
             <div class="border-b border-tech-border pb-2 mb-4">
                 <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                    <span class="text-blue-500">🖥️</span> Monitores & Telas
+                    <span class="text-cyan-400">🖥️</span> Monitores & Telas
                 </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="monitoresContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="monitoresContainer"></div>
         </section>
 
         <section id="section-servicos" class="menu-section pt-2">
             <div class="border-b border-tech-border pb-2 mb-4">
                 <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                    <span class="text-blue-500">🛠️</span> Assistência Técnica & Instalação
+                    <span class="text-cyan-400">🛠️</span> Assistência Técnica & Instalação
                 </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="servicosContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="servicosContainer"></div>
         </section>
 
         <div id="noResultsState" class="hidden py-12 text-center">
@@ -246,20 +249,25 @@
             </div>
             <h4 class="text-zinc-300 font-bold text-base">Nenhum item encontrado</h4>
             <p class="text-zinc-500 text-xs mt-1">Tente pesquisar por outro nome ou navegue pelas categorias acima.</p>
-            <button onclick="clearSearch()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-colors">
+            <button onclick="clearSearch()" class="mt-4 bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs px-4 py-2 rounded-xl transition-colors">
                 Limpar busca
             </button>
         </div>
     </main>
 
+    <!-- Botão Flutuante do WhatsApp (Acompanha a rolagem) -->
+    <a href="https://wa.me/5567999584289" target="_blank" class="fixed bottom-20 right-4 z-40 bg-emerald-600 hover:bg-emerald-500 text-white w-13 h-13 p-3.5 rounded-full flex items-center justify-center shadow-lg shadow-emerald-950/80 transition-all hover:scale-110 active:scale-95" aria-label="Contato WhatsApp">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
     <div id="floatingCartBar" class="fixed bottom-0 inset-x-0 z-30 p-3 sm:p-4 glass-panel border-t border-tech-border transition-transform duration-300">
         <div class="max-w-4xl mx-auto flex items-center justify-between gap-3">
             <div class="flex items-center gap-3">
                 <div class="relative">
-                    <div class="w-11 h-11 rounded-xl bg-blue-600 text-white flex items-center justify-center text-lg font-bold shadow-lg shadow-blue-950/80">
+                    <div class="w-11 h-11 rounded-xl bg-cyan-500 text-slate-950 flex items-center justify-center text-lg font-bold shadow-lg shadow-cyan-950/80">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </div>
-                    <span id="floatingCartCount" class="absolute -top-1.5 -right-1.5 bg-white text-blue-600 font-extrabold text-[11px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-zinc-900 shadow">0</span>
+                    <span id="floatingCartCount" class="absolute -top-1.5 -right-1.5 bg-white text-cyan-600 font-extrabold text-[11px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-zinc-900 shadow">0</span>
                 </div>
                 <div>
                     <span class="text-[11px] text-zinc-400 block uppercase tracking-wider font-medium">Total do Pedido</span>
@@ -267,7 +275,7 @@
                 </div>
             </div>
 
-            <button onclick="toggleCartDrawer()" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-blue-950/60 transition-all">
+            <button onclick="toggleCartDrawer()" class="bg-cyan-500 hover:bg-cyan-400 active:scale-95 text-slate-950 font-bold text-xs sm:text-sm px-5 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-cyan-950/65 transition-all">
                 <span>Ver Sacola</span>
                 <i class="fa-solid fa-chevron-right text-xs"></i>
             </button>
@@ -279,7 +287,7 @@
         <div class="bg-tech-card border border-tech-border w-full max-w-xl rounded-2xl overflow-hidden shadow-2xl p-6 space-y-5 transform scale-95 transition-transform" id="simuladorModalContent">
             <div class="flex items-center justify-between border-b border-tech-border pb-3">
                 <div>
-                    <span class="text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/30 px-3 py-1 rounded-full uppercase">Ferramenta Profissional</span>
+                    <span class="text-xs font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/30 px-3 py-1 rounded-full uppercase">Ferramenta Profissional</span>
                     <h3 class="font-display font-bold text-xl text-white mt-2">Simulador de Projeto: CFTV & Redes</h3>
                 </div>
                 <button onclick="toggleSimuladorModal()" class="w-8 h-8 rounded-xl bg-tech-subtle text-zinc-400 hover:text-white flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
@@ -327,7 +335,7 @@
             <div class="bg-tech-bg p-4 rounded-xl border border-tech-border flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div>
                     <span class="text-[10px] uppercase font-bold text-zinc-400 block">Estimativa Preliminar</span>
-                    <span id="simResultTotal" class="text-xl font-bold text-blue-400 font-display">R$ 0,00</span>
+                    <span id="simResultTotal" class="text-xl font-bold text-cyan-400 font-display">R$ 0,00</span>
                 </div>
                 <button onclick="enviarSimuladorWhatsApp()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg">
                     <i class="fa-brands fa-whatsapp"></i> Enviar Orçamento
@@ -339,7 +347,7 @@
     <!-- MODAL DO PRODUTO -->
     <div id="itemModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-opacity duration-200">
         <div class="bg-tech-card border border-tech-border w-full max-w-lg rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col transform translate-y-8 transition-transform duration-200" id="itemModalContent">
-            <div class="relative h-48 sm:h-52 bg-tech-bg flex items-center justify-center p-2">
+            <div class="relative h-48 sm:h-52 bg-tech-bg flex items-center justify-center p-2 card-image-container">
                 <img id="modalItemImage" src="" alt="" class="max-h-full max-w-full object-contain">
                 <button onclick="closeItemModal()" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 text-white hover:bg-black flex items-center justify-center backdrop-blur-md transition-colors">
                     <i class="fa-solid fa-xmark text-lg"></i>
@@ -349,16 +357,16 @@
             <div class="p-5 overflow-y-auto space-y-4 flex-1">
                 <div>
                     <h3 id="modalItemTitle" class="text-xl font-bold font-display text-white"></h3>
-                    <p id="modalItemPrice" class="text-blue-400 font-bold text-lg mt-1 font-display"></p>
+                    <p id="modalItemPrice" class="text-cyan-400 font-bold text-lg mt-1 font-display"></p>
                     <p id="modalItemDesc" class="text-xs text-zinc-300 mt-2.5 leading-relaxed bg-tech-bg p-3.5 rounded-xl border border-tech-border"></p>
                 </div>
 
                 <div class="pt-2">
                     <label class="block text-xs font-semibold text-zinc-300 mb-1.5 flex items-center justify-between">
-                        <span><i class="fa-regular fa-comment-dots text-blue-500 mr-1.5"></i>Observações / Voltagem</span>
+                        <span><i class="fa-regular fa-comment-dots text-cyan-400 mr-1.5"></i>Observações / Voltagem</span>
                         <span class="text-[10px] text-zinc-500">Opcional</span>
                     </label>
-                    <textarea id="modalItemObs" rows="2" placeholder="Ex: Voltagem 220v, detalhes de entrega..." class="w-full bg-tech-bg border border-tech-border rounded-xl p-3 text-xs text-zinc-200 placeholder-zinc-600 focus:border-blue-600 outline-none resize-none"></textarea>
+                    <textarea id="modalItemObs" rows="2" placeholder="Ex: Voltagem 220v, detalhes de entrega..." class="w-full bg-tech-bg border border-tech-border rounded-xl p-3 text-xs text-zinc-200 placeholder-zinc-600 focus:border-cyan-500 outline-none resize-none"></textarea>
                 </div>
             </div>
 
@@ -373,7 +381,7 @@
                     </button>
                 </div>
 
-                <button id="modalAddBtn" onclick="confirmAddItemModal()" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm py-3 px-4 rounded-xl flex items-center justify-between transition-colors shadow-lg shadow-blue-950/50">
+                <button id="modalAddBtn" onclick="confirmAddItemModal()" class="flex-1 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm py-3 px-4 rounded-xl flex items-center justify-between transition-colors shadow-lg shadow-cyan-950/50">
                     <span>Adicionar à Sacola</span>
                     <span id="modalSubtotalDisplay" class="font-display">R$ 0,00</span>
                 </button>
@@ -387,7 +395,7 @@
             
             <div class="p-4 bg-tech-bg border-b border-tech-border flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-basket-shopping text-blue-500 text-lg"></i>
+                    <i class="fa-solid fa-basket-shopping text-cyan-400 text-lg"></i>
                     <h2 class="font-display font-bold text-lg text-white">Sua Sacola</h2>
                     <span id="cartDrawerBadge" class="bg-tech-subtle text-zinc-300 text-xs px-2.5 py-0.5 rounded-full font-medium border border-tech-border">0 itens</span>
                 </div>
@@ -419,13 +427,13 @@
                 <div id="checkoutOptionsSection" class="space-y-5 pt-2 border-t border-tech-border">
                     <div class="space-y-2.5 bg-tech-bg p-3.5 rounded-xl border border-tech-border">
                         <span class="text-xs font-bold text-zinc-300 block flex items-center justify-between">
-                            <span><i class="fa-solid fa-user text-blue-500 mr-1.5"></i>Seus Dados</span>
+                            <span><i class="fa-solid fa-user text-cyan-400 mr-1.5"></i>Seus Dados</span>
                             <span id="savedBadge" class="hidden text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full"><i class="fa-solid fa-check mr-1"></i>Salvo</span>
                         </span>
                         
                         <div class="grid grid-cols-1 gap-2">
-                            <input type="text" id="custName" onchange="saveCustomerData()" placeholder="Seu Nome Completo *" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-zinc-100 placeholder-zinc-600 focus:border-blue-600 outline-none">
-                            <input type="tel" id="custPhone" onchange="saveCustomerData()" placeholder="Seu WhatsApp (Ex: 67 99999-9999) *" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-zinc-100 placeholder-zinc-600 focus:border-blue-600 outline-none">
+                            <input type="text" id="custName" onchange="saveCustomerData()" placeholder="Seu Nome Completo *" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-zinc-100 placeholder-zinc-600 focus:border-cyan-500 outline-none">
+                            <input type="tel" id="custPhone" onchange="saveCustomerData()" placeholder="Seu WhatsApp (Ex: 67 99999-9999) *" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-zinc-100 placeholder-zinc-600 focus:border-cyan-500 outline-none">
                         </div>
                     </div>
 
@@ -438,15 +446,15 @@
                             <button onclick="setServiceMode('delivery')" id="modeDelivery" class="service-mode-btn bg-tech-bg border border-tech-border text-zinc-400 p-2.5 rounded-xl flex flex-col items-center justify-center text-center text-[11px] font-semibold transition-all">
                                 <i class="fa-solid fa-truck mb-1 text-sm"></i> Só Entrega
                             </button>
-                            <button onclick="setServiceMode('install')" id="modeInstall" class="service-mode-btn bg-tech-bg border-2 border-blue-600 text-white p-2.5 rounded-xl flex flex-col items-center justify-center text-center text-[11px] font-semibold transition-all">
-                                <i id="installModeIcon" class="fa-solid fa-tools mb-1 text-sm text-blue-400"></i> 
+                            <button onclick="setServiceMode('install')" id="modeInstall" class="service-mode-btn bg-tech-bg border-2 border-cyan-500 text-cyan-400 p-2.5 rounded-xl flex flex-col items-center justify-center text-center text-[11px] font-semibold transition-all">
+                                <i id="installModeIcon" class="fa-solid fa-tools mb-1 text-sm text-cyan-400"></i> 
                                 <span id="installModeText">Instalação</span>
                             </button>
                         </div>
                     </div>
 
                     <div id="installScheduleBox" class="space-y-3 bg-tech-bg p-3.5 rounded-xl border border-tech-border">
-                        <span id="scheduleTitleText" class="text-xs font-bold text-blue-400 block">
+                        <span id="scheduleTitleText" class="text-xs font-bold text-cyan-400 block">
                             <i class="fa-regular fa-calendar-days mr-1.5"></i>Agendar Atendimento
                         </span>
                         <div class="grid grid-cols-2 gap-2">
@@ -469,14 +477,14 @@
                     <div>
                         <label class="block text-xs font-bold text-zinc-300 mb-2 uppercase tracking-wider">Forma de Pagamento</label>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="setPaymentMethod('pix')" id="payPix" class="pay-option bg-tech-bg border-2 border-blue-600 text-white p-2.5 rounded-xl flex flex-col items-center justify-center text-[11px] font-semibold">
+                            <button onclick="setPaymentMethod('pix')" id="payPix" class="pay-option bg-tech-bg border-2 border-cyan-500 text-cyan-400 p-2.5 rounded-xl flex flex-col items-center justify-center text-[11px] font-semibold">
                                 <i class="fa-brands fa-pix text-emerald-400 text-sm mb-1"></i> PIX (0%)
                             </button>
                             <button onclick="setPaymentMethod('debit')" id="payDebit" class="pay-option bg-tech-bg border border-tech-border text-zinc-400 p-2.5 rounded-xl flex flex-col items-center justify-center text-[11px] font-semibold">
                                 <i class="fa-solid fa-credit-card text-amber-400 text-sm mb-1"></i> Débito (0.89%)
                             </button>
                             <button onclick="setPaymentMethod('credit')" id="payCredit" class="pay-option bg-tech-bg border border-tech-border text-zinc-400 p-2.5 rounded-xl flex flex-col items-center justify-center text-[11px] font-semibold">
-                                <i class="fa-solid fa-credit-card text-blue-400 text-sm mb-1"></i> Crédito
+                                <i class="fa-solid fa-credit-card text-cyan-400 text-sm mb-1"></i> Crédito
                             </button>
                             <button onclick="setPaymentMethod('cash')" id="payCash" class="pay-option col-span-3 bg-tech-bg border border-tech-border text-zinc-400 p-2 rounded-xl flex items-center justify-center gap-2 text-xs font-semibold">
                                 <i class="fa-solid fa-money-bill-wave text-emerald-500"></i> Dinheiro
@@ -517,7 +525,7 @@
                         </div>
                         <div class="border-t border-tech-border pt-2 flex justify-between font-bold text-sm text-white">
                             <span>Total Final</span>
-                            <span id="summaryTotal" class="text-blue-400 font-display text-base">R$ 0,00</span>
+                            <span id="summaryTotal" class="text-cyan-400 font-display text-base">R$ 0,00</span>
                         </div>
                     </div>
                 </div>

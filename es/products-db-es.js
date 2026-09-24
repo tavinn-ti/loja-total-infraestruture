@@ -1,33 +1,56 @@
-// es/products-db-es.js
-const PRODUCTS_DB = [
+const PRODUCTS_DB_ES = [
     {
-        id: 'cam-01',
-        category: 'cameras',
-        name: 'CÁMARA PTZ ICSEE DOBLE LENTE 315°',
-        price: 260.00,
-        isHighlight: true,
-        description: 'Cámara inteligente con doble lente para seguimiento simultáneo, rotación 315°, visión nocturna por infrarrojos y conexión mediante iCSee.',
-        image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcREwmjkVurC-kZ5UGqmmmVtMmV-TEXVZl57DPrZ8hrrXSMLc0jZyUU0w2w4oSytJqGBmAicR245BqD8aoszKbFSpl4G1ueWI782leLIiAkcXzz-fXhCLQQrIh0&usqp=CAc',
-        fallbackImage: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&auto=format&fit=crop&q=80'
-    },
-    {
-        id: 'intl-shipping-01',
-        category: 'servicos',
-        name: 'Ventas y Envíos Internacionales (Frontera / Países Vecinos)',
+        id: 'es-imp-1',
+        name: 'Asistencia de Compra en eBay / Amazon / AliExpress',
+        category: 'importacion',
         price: 150.00,
         isHighlight: true,
-        description: 'Gestión especializada de ventas de hardware, kits de cámaras y equipos de red con logística de entrega internacional para la región fronteriza.',
-        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80',
-        fallbackImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=800&auto=format&fit=crop&q=80'
+        image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=600&auto=format&fit=crop&q=80',
+        description: 'Gestionamos la compra directa por ti en tiendas internacionales de EE.UU. o Asia y coordinamos su recepción y envío legal a la frontera.'
     },
     {
-        id: 'serv-01',
-        category: 'servicos',
-        name: 'Formateo Completo + Limpieza Física de PC/Notebook',
+        id: 'es-imp-2',
+        name: 'Casillero y Recepción de Paquetes en Frontera',
+        category: 'frontera',
+        price: 80.00,
+        isHighlight: true,
+        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&auto=format&fit=crop&q=80',
+        description: 'Usa nuestra dirección comercial en la zona fronteriza para recibir tus pedidos y retirarlos personalmente en nuestro Hub seguro.'
+    },
+    {
+        id: 'es-imp-3',
+        name: 'Inspección & Verificación de Hardware Usado/Raro',
+        category: 'importacion',
         price: 100.00,
         isHighlight: false,
-        description: 'Instalación limpia de Windows 10/11, drivers actualizados, paquete Office, antivirus, limpieza interna de polvo y cambio de pasta térmica.',
-        image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800&auto=format&fit=crop&q=80',
-        fallbackImage: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800&auto=format&fit=crop&q=80'
+        image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=600&auto=format&fit=crop&q=80',
+        description: 'Pruebas de funcionamiento, fotografías en alta definición y verificación física de componentes electrónicos raros antes de la entrega final.'
+    },
+    {
+        id: 'es-env-1',
+        name: 'Embalaje Blindado Anti-Impacto para Tarjetas Gráficas y CPUs',
+        category: 'envio_seguro',
+        price: 60.00,
+        isHighlight: true,
+        image: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=600&auto=format&fit=crop&q=80',
+        description: 'Empaque técnico profesional con espuma ESD (antiestática), protección rígida externa y sellado contra humedad para componentes valiosos.'
+    },
+    {
+        id: 'es-env-2',
+        name: 'Flete y Logística Binacional para Cámaras CFTV y Redes',
+        category: 'envio_seguro',
+        price: 120.00,
+        isHighlight: false,
+        image: 'https://m.media-amazon.com/images/I/71RMeDBNFzL._AC_UF894,1000_QL80_.jpg',
+        description: 'Transporte coordinado y seguro de kits completos de videovigilancia, servidores y antenas con trámites legales en regla.'
+    },
+    {
+        id: 'es-fron-1',
+        name: 'Servicio Express de Retiro y Despacho en el Mismo Día',
+        category: 'frontera',
+        price: 200.00,
+        isHighlight: false,
+        image: 'https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=600&auto=format&fit=crop&q=80',
+        description: 'Prioridad máxima para la recepción, revisión exprés y entrega inmediata en el punto de retiro para clientes en zonas fronterizas.'
     }
 ];
