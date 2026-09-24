@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tavinn TI - Soluções em TI, CFTV & Informática</title>
     
+    <!-- SEO Local Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Tavinn TI",
+      "url": "https://tavinn.ti",
+      "telephone": "+5567999584289",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Itahum",
+        "addressRegion": "MS",
+        "addressCountry": "BR"
+      },
+      "taxID": "63.777.644/0001-00"
+    }
+    </script>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -21,10 +39,10 @@
                 extend: {
                     colors: {
                         tech: {
-                            bg: '#080d1a',
-                            card: '#0f172a',
-                            border: '#1e293b',
-                            subtle: '#182238',
+                            bg: '#0c0c0e',
+                            card: '#141417',
+                            border: '#27272a',
+                            subtle: '#1f1f23',
                             accent: '#3b82f6',
                             glow: '#2563eb'
                         }
@@ -38,108 +56,90 @@
         }
     </script>
 
-    <style>
-        body {
-            background-color: #080d1a;
-            color: #f8fafc;
-            font-family: 'Inter', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .glass-header {
-            background: rgba(8, 13, 26, 0.88);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-        }
-
-        .glass-panel {
-            background: rgba(15, 23, 42, 0.92);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="bg-tech-bg text-slate-100 min-h-screen pb-28 selection:bg-blue-600 selection:text-white">
+<body class="bg-tech-bg text-zinc-100 min-h-screen pb-28 selection:bg-blue-600 selection:text-white">
 
-    <!-- BARRA SUPERIOR E NAVEGAÇÃO -->
-    <header class="sticky top-0 z-30 glass-header border-b border-tech-border/80 transition-all duration-200">
-        <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between gap-3">
+    <div class="bg-blue-950/40 border-b border-blue-500/20 py-2 px-4 text-center text-xs text-slate-300">
+        <i class="fa-solid fa-map-location-dot text-blue-400 mr-1.5"></i> Atendimento presencial focado em <strong>Itahum e região</strong>. Para projetos externos, consulte a taxa de deslocamento.
+    </div>
+
+    <header class="sticky top-0 z-30 glass-header border-b border-tech-border transition-all duration-200">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 p-0.5 shadow-lg shadow-blue-900/30 flex-shrink-0">
-                    <div class="w-full h-full bg-tech-bg rounded-[10px] flex items-center justify-center text-blue-400 font-bold text-lg">
-                        <i class="fa-solid fa-microchip"></i>
-                    </div>
+                <div class="w-10 h-10 rounded-xl bg-zinc-900 overflow-hidden border border-blue-600/50 shadow-md flex-shrink-0">
+                    <img src="assets/img/logo.jpng" alt="Logo Tavinn TI" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=150&auto=format&fit=crop&q=80';">
                 </div>
                 <div>
-                    <h1 class="font-display font-extrabold text-base md:text-lg leading-tight text-white tracking-wide flex items-center gap-2">
+                    <h1 class="font-display font-bold text-base md:text-lg leading-tight text-white tracking-wide flex items-center gap-2">
                         Tavinn TI <span class="hidden sm:inline-block text-[10px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-0.5 rounded-full">Pro Tech</span>
                     </h1>
-                    <span id="headerStatus" class="text-[11px] text-slate-400 flex items-center gap-1.5">
+                    <span id="headerStatus" class="text-[11px] text-zinc-400 flex items-center gap-1.5">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Atendimento & Suporte Técnico
                     </span>
                 </div>
             </div>
 
             <div class="flex items-center gap-2">
-                <!-- BOTÃO INSTAGRAM -->
-                <a href="https://instagram.com/tavinn.ti" target="_blank" class="flex items-center gap-1.5 text-xs font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white px-3 py-2.5 rounded-xl transition-all shadow-md">
-                    <i class="fa-brands fa-instagram text-sm"></i>
-                    <span class="hidden sm:inline">Instagram</span>
-                </a>
+                <button onclick="toggleSimuladorModal()" class="hidden sm:flex items-center gap-1.5 text-xs font-semibold bg-cyan-600/20 hover:bg-cyan-600/30 text-cyan-400 border border-cyan-500/40 px-3 py-2 rounded-xl transition-all">
+                    <i class="fa-solid fa-calculator text-sm"></i>
+                    <span>Simulador</span>
+                </button>
+
+                <div class="flex items-center bg-tech-subtle border border-tech-border rounded-xl p-1 text-xs font-semibold">
+                    <span class="px-2 py-1 bg-blue-600 text-white rounded-lg shadow">PT</span>
+                    <a href="en/" class="px-2 py-1 text-zinc-400 hover:text-white transition-colors">EN</a>
+                    <a href="es/" class="px-2 py-1 text-zinc-400 hover:text-white transition-colors">ES</a>
+                </div>
                 
-                <!-- BOTÃO WHATSAPP -->
-                <a href="https://wa.me/5567999584289" target="_blank" class="hidden sm:flex items-center gap-2 text-xs font-semibold bg-tech-subtle hover:bg-slate-800 text-slate-200 px-3.5 py-2.5 rounded-xl border border-tech-border transition-all">
+                <a href="https://wa.me/5567999584289" target="_blank" class="hidden sm:flex items-center gap-2 text-xs bg-tech-subtle hover:bg-zinc-800 text-zinc-200 px-3 py-2 rounded-xl border border-tech-border transition-colors">
                     <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
                     <span>(67) 99958-4289</span>
                 </a>
-                <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-tech-subtle hover:bg-slate-800 border border-tech-border text-slate-200 transition-colors" aria-label="Abrir carrinho">
-                    <i class="fa-solid fa-cart-shopping text-base"></i>
-                    <span id="headerCartBadge" class="hidden absolute -top-1.5 -right-1.5 bg-blue-600 text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-tech-bg">
-                        0
-                    </span>
+                
+                <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-tech-subtle hover:bg-zinc-800 border border-tech-border text-zinc-200 transition-colors" aria-label="Abrir sacola">
+                    <i class="fa-solid fa-basket-shopping text-base"></i>
+                    <span id="headerCartBadge" class="hidden absolute -top-1.5 -right-1.5 bg-blue-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-tech-bg">0</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- HERO / APRESENTAÇÃO TECH -->
-    <section class="relative bg-gradient-to-b from-slate-900/90 via-tech-card/60 to-tech-bg border-b border-tech-border/60 py-10 px-4 overflow-hidden">
-        <div class="absolute -top-24 -left-24 w-72 h-72 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute -bottom-24 -right-24 w-72 h-72 bg-cyan-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section class="relative bg-gradient-to-b from-zinc-900/80 to-tech-bg border-b border-tech-border">
+        <div class="h-32 md:h-44 w-full bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&auto=format&fit=crop&q=80');">
+            <div class="absolute inset-0 bg-gradient-to-t from-tech-bg via-tech-bg/70 to-transparent"></div>
+        </div>
 
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
-            <div class="space-y-3 text-center md:text-left">
-                <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs px-3.5 py-1.5 rounded-full font-semibold backdrop-blur-md">
-                    <i class="fa-solid fa-shield-halved text-cyan-400"></i> Infraestrutura & Hardware Profissional
+        <div class="max-w-4xl mx-auto px-4 -mt-14 relative z-10 pb-4">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                <div class="flex items-end gap-4">
+                    <div class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-tech-card border-2 border-blue-600 shadow-2xl p-1 flex-shrink-0 relative overflow-hidden group">
+                        <img src="assets/img/logo.jpng" alt="Tavinn TI Logo" class="w-full h-full object-cover rounded-xl" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=300&auto=format&fit=crop&q=80';">
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h2 class="text-xl sm:text-2xl font-bold font-display text-white">Tavinn TI - Infraestrutura & Redes</h2>
+                            <span class="bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-semibold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                                <i class="fa-solid fa-circle text-[8px]"></i> Aberto para Atendimento
+                            </span>
+                        </div>
+                        <p class="text-xs text-zinc-400 mt-1">Câmeras CFTV, Redes Estruturadas, Hardware, Servidores e Suporte Especializado.</p>
+                    </div>
                 </div>
-                <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight leading-snug">
-                    Eleve o Nível da Sua <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Tecnologia</span>
-                </h2>
-                <p class="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
-                    Câmeras de Segurança CFTV, Montagem de PC Gamer, Acessórios para Gabinete, Periféricos de Alta Performance e Suporte Especializado.
-                </p>
-                
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2 text-xs text-slate-400">
-                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck text-blue-400"></i> Entrega Rápida</span>
-                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-wrench text-blue-400"></i> Instalação Presencial</span>
-                    <span class="flex items-center gap-1.5"><i class="fa-brands fa-pix text-emerald-400"></i> Desconto no PIX</span>
+
+                <div class="sm:hidden w-full">
+                    <button onclick="toggleSimuladorModal()" class="w-full bg-cyan-600/20 text-cyan-400 border border-cyan-500/40 font-bold text-xs py-2.5 rounded-xl flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> Abrir Simulador de Projeto
+                    </button>
                 </div>
             </div>
 
-            <!-- BARRA DE BUSCA RÁPIDA -->
-            <div class="w-full md:w-80">
+            <div class="mt-5">
                 <div class="relative">
-                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
-                    <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Buscar suporte, câmara, Ryzen, SSD, teclado..." class="w-full bg-tech-bg/90 border border-tech-border focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-xl pl-10 pr-10 py-3.5 text-xs text-slate-100 placeholder-slate-500 transition-all outline-none shadow-inner">
-                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 text-xs p-1">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-zinc-500 text-sm"></i>
+                    <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Buscar no catálogo... (ex: Câmera PTZ, Ryzen, Formatação, SSD)" class="w-full bg-tech-card border border-tech-border focus:border-blue-600 focus:ring-1 focus:ring-blue-600 rounded-xl pl-10 pr-10 py-2.5 text-sm text-zinc-100 placeholder-zinc-500 transition-all outline-none">
+                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 text-xs p-1">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
@@ -147,193 +147,200 @@
         </div>
     </section>
 
-    <!-- NAVEGAÇÃO DE CATEGORIAS -->
-    <nav class="sticky top-[65px] z-20 bg-tech-bg/90 backdrop-blur-md border-b border-tech-border/80 shadow-md">
-        <div class="max-w-6xl mx-auto px-4">
+    <nav class="sticky top-[57px] z-20 bg-tech-bg/95 backdrop-blur-md border-b border-tech-border shadow-lg">
+        <div class="max-w-4xl mx-auto px-4">
             <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-3 scroll-smooth" id="categoryTabs">
-                <button onclick="filterCategory('todos')" data-cat="todos" class="category-btn active bg-blue-600 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all shadow-md shadow-blue-900/40">
-                    <i class="fa-solid fa-border-all mr-1.5"></i> Todos os Produtos
+                <button onclick="filterCategory('todos')" data-cat="todos" class="category-btn active bg-blue-600 text-white font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all shadow-lg shadow-blue-950/50">
+                    <i class="fa-solid fa-border-all mr-1.5"></i> Todos
                 </button>
-                <button onclick="filterCategory('cameras')" data-cat="cameras" class="category-btn bg-tech-card hover:bg-slate-800 text-slate-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
+                <button onclick="filterCategory('cameras')" data-cat="cameras" class="category-btn bg-tech-card hover:bg-zinc-800 text-zinc-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
                     📹 Câmeras & CFTV
                 </button>
-                <button onclick="filterCategory('hardware')" data-cat="hardware" class="category-btn bg-tech-card hover:bg-slate-800 text-slate-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
+                <button onclick="filterCategory('hardware')" data-cat="hardware" class="category-btn bg-tech-card hover:bg-zinc-800 text-zinc-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
                     🖥️ Peças & Hardware
                 </button>
-                <button onclick="filterCategory('acessorios')" data-cat="acessorios" class="category-btn bg-tech-card hover:bg-slate-800 text-slate-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
-                    🎮 Acessórios para Gabinete
+                <button onclick="filterCategory('acessorios')" data-cat="acessorios" class="category-btn bg-tech-card hover:bg-zinc-800 text-zinc-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
+                    🎮 Acessórios
                 </button>
-                <button onclick="filterCategory('perifericos')" data-cat="perifericos" class="category-btn bg-tech-card hover:bg-slate-800 text-slate-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
+                <button onclick="filterCategory('perifericos')" data-cat="perifericos" class="category-btn bg-tech-card hover:bg-zinc-800 text-zinc-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
                     🖱️ Periféricos
                 </button>
-                <button onclick="filterCategory('monitores')" data-cat="monitores" class="category-btn bg-tech-card hover:bg-slate-800 text-slate-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
+                <button onclick="filterCategory('monitores')" data-cat="monitores" class="category-btn bg-tech-card hover:bg-zinc-800 text-zinc-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
                     🖥️ Monitores
                 </button>
-                <button onclick="filterCategory('servicos')" data-cat="servicos" class="category-btn bg-tech-card hover:bg-slate-800 text-slate-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
-                    🛠️ Serviços & Assistência
+                <button onclick="filterCategory('servicos')" data-cat="servicos" class="category-btn bg-tech-card hover:bg-zinc-800 text-zinc-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all">
+                    🛠️ Serviços
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- CONTEÚDO PRINCIPAL -->
-    <main class="max-w-6xl mx-auto px-4 py-8 space-y-10">
-
-        <!-- DESTAQUES E OFERTAS -->
+    <main class="max-w-4xl mx-auto px-4 py-6 space-y-8">
         <section id="section-destaques" class="menu-section">
-            <div class="flex items-center justify-between mb-4">
-                <div>
-                    <h3 class="font-display font-extrabold text-xl text-white flex items-center gap-2">
-                        <span class="text-blue-500 text-2xl">🔥</span> Destaques & Ofertas
-                    </h3>
-                    <p class="text-xs text-slate-400 mt-0.5">As melhores seleções da semana com preços especiais no PIX</p>
-                </div>
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="font-display font-bold text-lg text-white flex items-center gap-2">
+                    <span class="text-blue-500 text-xl">🔥</span> Destaques & Ofertas
+                </h3>
+                <span class="text-xs text-zinc-500">Mais procurados</span>
             </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="highlightsContainer">
-                <!-- Injetado via JS -->
-            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="highlightsContainer"></div>
         </section>
 
-        <!-- BANNER DE MONTAGEM PERSONALIZADA -->
-        <section class="bg-gradient-to-r from-blue-900/40 via-tech-card to-cyan-950/30 border border-blue-500/30 rounded-2xl p-6 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
-            <div class="space-y-2 text-center md:text-left z-10">
-                <span class="bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
-                    <i class="fa-solid fa-sliders mr-1"></i> Monte Seu PC Sob Medida
-                </span>
-                <h4 class="text-xl sm:text-2xl font-bold font-display text-white">Não encontrou a peça exata que procurava?</h4>
-                <p class="text-xs sm:text-sm text-slate-300 max-w-xl">
-                    Montamos orçamentos customizados para PC Gamer, Workstation e Projetos de Câmeras CFTV com peças sob encomenda!
-                </p>
-            </div>
-            <a href="https://wa.me/5567999584289?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20personalizado%20de%20PC%20ou%20C%C3%A2meras." target="_blank" class="z-10 whitespace-nowrap bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl shadow-lg shadow-blue-950/60 transition-all flex items-center gap-2">
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-                <span>Orçamento Customizado</span>
-            </a>
-        </section>
-
-        <!-- CÂMERAS & CFTV -->
         <section id="section-cameras" class="menu-section pt-2">
-            <div class="border-b border-tech-border pb-2.5 mb-4 flex items-center justify-between">
-                <div>
-                    <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                        <span class="text-blue-500">📹</span> Câmeras de Segurança & CFTV
-                    </h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Segurança residencial e comercial com visão noturna e acesso remoto</p>
-                </div>
+            <div class="border-b border-tech-border pb-2 mb-4">
+                <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
+                    <span class="text-blue-500">📹</span> Câmeras de Segurança & CFTV
+                </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="camerasContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="camerasContainer"></div>
         </section>
 
-        <!-- PEÇAS & HARDWARE -->
         <section id="section-hardware" class="menu-section pt-2">
-            <div class="border-b border-tech-border pb-2.5 mb-4 flex items-center justify-between">
-                <div>
-                    <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                        <span class="text-blue-500">🖥️</span> Peças de Computador & Hardware
-                    </h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Processadores, Placas de Vídeo, Placas-Mãe, Memórias RAM e SSDs</p>
-                </div>
+            <div class="border-b border-tech-border pb-2 mb-4">
+                <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
+                    <span class="text-blue-500">🖥️</span> Peças de Computador & Hardware
+                </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="hardwareContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="hardwareContainer"></div>
         </section>
 
-        <!-- ACESSÓRIOS PARA GABINETE & MODDING -->
         <section id="section-acessorios" class="menu-section pt-2">
-            <div class="border-b border-tech-border pb-2.5 mb-4 flex items-center justify-between">
-                <div>
-                    <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                        <span class="text-blue-500">🎮</span> Acessórios para Gabinete & Modding
-                    </h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Suportes de GPU, telas secundárias, rodízios e personalização</p>
-                </div>
+            <div class="border-b border-tech-border pb-2 mb-4">
+                <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
+                    <span class="text-blue-500">🎮</span> Acessórios para Gabinete & Modding
+                </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="acessoriosContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="acessoriosContainer"></div>
         </section>
 
-        <!-- PERIFÉRICOS -->
         <section id="section-perifericos" class="menu-section pt-2">
-            <div class="border-b border-tech-border pb-2.5 mb-4 flex items-center justify-between">
-                <div>
-                    <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                        <span class="text-blue-500">🖱️</span> Periféricos Gamer & Escritório
-                    </h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Teclados, Mouses, Headsets, Microfones, Webcams e Adaptadores</p>
-                </div>
+            <div class="border-b border-tech-border pb-2 mb-4">
+                <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
+                    <span class="text-blue-500">🖱️</span> Periféricos Gamer & Escritório
+                </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="perifericosContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="perifericosContainer"></div>
         </section>
 
-        <!-- MONITORES -->
         <section id="section-monitores" class="menu-section pt-2">
-            <div class="border-b border-tech-border pb-2.5 mb-4 flex items-center justify-between">
-                <div>
-                    <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                        <span class="text-blue-500">🖥️</span> Monitores & Telas
-                    </h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Telas para trabalho, estudos e alta taxa de atualização para jogos</p>
-                </div>
+            <div class="border-b border-tech-border pb-2 mb-4">
+                <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
+                    <span class="text-blue-500">🖥️</span> Monitores & Telas
+                </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="monitoresContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="monitoresContainer"></div>
         </section>
 
-        <!-- SERVIÇOS & ASSISTÊNCIA TÉCNICA -->
         <section id="section-servicos" class="menu-section pt-2">
-            <div class="border-b border-tech-border pb-2.5 mb-4 flex items-center justify-between">
-                <div>
-                    <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
-                        <span class="text-blue-500">🛠️</span> Assistência Técnica & Instalação
-                    </h3>
-                    <p class="text-xs text-slate-400 mt-0.5">Formatamos seu computador, montamos seu PC Gamer e instalamos sistemas de câmeras</p>
-                </div>
+            <div class="border-b border-tech-border pb-2 mb-4">
+                <h3 class="font-display font-bold text-xl text-white flex items-center gap-2">
+                    <span class="text-blue-500">🛠️</span> Assistência Técnica & Instalação
+                </h3>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="servicosContainer"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="servicosContainer"></div>
         </section>
 
-        <!-- SEM RESULTADOS DE BUSCA -->
-        <div id="noResultsState" class="hidden py-16 text-center">
-            <div class="w-16 h-16 bg-tech-card text-slate-600 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl border border-tech-border">
+        <div id="noResultsState" class="hidden py-12 text-center">
+            <div class="w-16 h-16 bg-tech-card text-zinc-600 rounded-full flex items-center justify-center mx-auto mb-3 text-2xl border border-tech-border">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            <h4 class="text-slate-300 font-bold text-base">Nenhum produto encontrado</h4>
-            <p class="text-slate-500 text-xs mt-1">Tente pesquisar por outro nome de peça ou categoria.</p>
+            <h4 class="text-zinc-300 font-bold text-base">Nenhum item encontrado</h4>
+            <p class="text-zinc-500 text-xs mt-1">Tente pesquisar por outro nome ou navegue pelas categorias acima.</p>
             <button onclick="clearSearch()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-4 py-2 rounded-xl transition-colors">
                 Limpar busca
             </button>
         </div>
-
     </main>
 
-    <!-- BARRA FLUTUANTE DE CARRINHO -->
-    <div id="floatingCartBar" class="fixed bottom-0 inset-x-0 z-30 p-3 sm:p-4 glass-panel border-t border-tech-border/80 shadow-2xl transition-transform duration-300 transform translate-y-0">
-        <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
+    <div id="floatingCartBar" class="fixed bottom-0 inset-x-0 z-30 p-3 sm:p-4 glass-panel border-t border-tech-border transition-transform duration-300">
+        <div class="max-w-4xl mx-auto flex items-center justify-between gap-3">
             <div class="flex items-center gap-3">
                 <div class="relative">
-                    <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 text-white flex items-center justify-center text-lg font-bold shadow-lg shadow-blue-950">
-                        <i class="fa-solid fa-cart-flatbed"></i>
+                    <div class="w-11 h-11 rounded-xl bg-blue-600 text-white flex items-center justify-center text-lg font-bold shadow-lg shadow-blue-950/80">
+                        <i class="fa-solid fa-basket-shopping"></i>
                     </div>
-                    <span id="floatingCartCount" class="absolute -top-1.5 -right-1.5 bg-white text-blue-600 font-extrabold text-[11px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-slate-900 shadow">
-                        0
-                    </span>
+                    <span id="floatingCartCount" class="absolute -top-1.5 -right-1.5 bg-white text-blue-600 font-extrabold text-[11px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-zinc-900 shadow">0</span>
                 </div>
                 <div>
-                    <span class="text-[11px] text-slate-400 block uppercase tracking-wider font-semibold">Total do Pedido</span>
+                    <span class="text-[11px] text-zinc-400 block uppercase tracking-wider font-medium">Total do Pedido</span>
                     <span id="floatingCartTotal" class="text-base sm:text-lg font-bold text-white font-display">R$ 0,00</span>
                 </div>
             </div>
 
-            <button onclick="toggleCartDrawer()" class="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 active:scale-95 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl flex items-center gap-2 shadow-lg shadow-blue-950/60 transition-all">
-                <span>Ver Carrinho</span>
+            <button onclick="toggleCartDrawer()" class="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-bold text-xs sm:text-sm px-5 py-3 rounded-xl flex items-center gap-2 shadow-lg shadow-blue-950/60 transition-all">
+                <span>Ver Sacola</span>
                 <i class="fa-solid fa-chevron-right text-xs"></i>
             </button>
         </div>
     </div>
 
-    <!-- MODAL DETALHADO DO PRODUTO -->
+    <!-- MODAL DO SIMULADOR -->
+    <div id="simuladorModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-200">
+        <div class="bg-tech-card border border-tech-border w-full max-w-xl rounded-2xl overflow-hidden shadow-2xl p-6 space-y-5 transform scale-95 transition-transform" id="simuladorModalContent">
+            <div class="flex items-center justify-between border-b border-tech-border pb-3">
+                <div>
+                    <span class="text-xs font-bold text-blue-400 bg-blue-500/10 border border-blue-500/30 px-3 py-1 rounded-full uppercase">Ferramenta Profissional</span>
+                    <h3 class="font-display font-bold text-xl text-white mt-2">Simulador de Projeto: CFTV & Redes</h3>
+                </div>
+                <button onclick="toggleSimuladorModal()" class="w-8 h-8 rounded-xl bg-tech-subtle text-zinc-400 hover:text-white flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="space-y-4 max-h-[60vh] overflow-y-auto pr-1">
+                <div class="bg-tech-bg p-4 rounded-xl border border-tech-border space-y-2">
+                    <label class="text-xs font-bold text-zinc-300 block">Tipo de Ambiente</label>
+                    <select id="simAmbiente" onchange="atualizarAmbienteEfetivo()" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-white outline-none">
+                        <option value="residencial">Residencial (Cabo Cat5 - R$ 5,50/m)</option>
+                        <option value="comercial">Comercial / Empresarial (Cabo Cat6 - R$ 6,50/m)</option>
+                        <option value="rural">Rural / Agrícola (Cabo Óptico - R$ 3,50/m)</option>
+                    </select>
+                </div>
+
+                <div class="bg-tech-bg p-4 rounded-xl border border-tech-border space-y-2">
+                    <label class="text-xs font-bold text-zinc-300 block">Modelo da Câmera</label>
+                    <select id="simModeloCamera" onchange="calcularSimulador()" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-white outline-none">
+                        <option value="ip">Câmera IP - R$ 80,00 un.</option>
+                        <option value="wifi">Câmera Wi-Fi PTZ - R$ 160,00 un.</option>
+                        <option value="cftv">Kit CFTV Padrão - R$ 100,00 un.</option>
+                    </select>
+                </div>
+
+                <div class="bg-tech-bg p-4 rounded-xl border border-tech-border space-y-2">
+                    <label class="text-xs font-bold text-zinc-300 block">Quantidade de Câmeras</label>
+                    <input type="number" id="simCameras" value="4" min="0" oninput="calcularSimulador()" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-white outline-none">
+                </div>
+
+                <div class="bg-tech-bg p-4 rounded-xl border border-tech-border space-y-2">
+                    <label class="text-xs font-bold text-zinc-300 block">Tipo de Cabo</label>
+                    <select id="simTipoCabo" onchange="calcularSimulador()" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-white outline-none">
+                        <option value="cat5">Cabo Cat5 (Residencial) - R$ 5,50/m</option>
+                        <option value="cat6">Cabo Cat6 (Comercial) - R$ 6,50/m</option>
+                        <option value="optico">Cabo Óptico (Rural) - R$ 3,50/m</option>
+                    </select>
+                </div>
+
+                <div class="bg-tech-bg p-4 rounded-xl border border-tech-border space-y-2">
+                    <label class="text-xs font-bold text-zinc-300 block">Metros de Cabeçamento</label>
+                    <input type="number" id="simCaboMetros" value="50" min="0" oninput="calcularSimulador()" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-white outline-none">
+                </div>
+            </div>
+
+            <div class="bg-tech-bg p-4 rounded-xl border border-tech-border flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div>
+                    <span class="text-[10px] uppercase font-bold text-zinc-400 block">Estimativa Preliminar</span>
+                    <span id="simResultTotal" class="text-xl font-bold text-blue-400 font-display">R$ 0,00</span>
+                </div>
+                <button onclick="enviarSimuladorWhatsApp()" class="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-5 py-3 rounded-xl flex items-center justify-center gap-2 shadow-lg">
+                    <i class="fa-brands fa-whatsapp"></i> Enviar Orçamento
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DO PRODUTO -->
     <div id="itemModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-opacity duration-200">
         <div class="bg-tech-card border border-tech-border w-full max-w-lg rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-2xl max-h-[90vh] flex flex-col transform translate-y-8 transition-transform duration-200" id="itemModalContent">
-            <div class="relative h-44 sm:h-48 bg-slate-950/60 p-4 flex items-center justify-center">
-                <img id="modalItemImage" src="" alt="" class="max-h-full max-w-full object-contain filter drop-shadow-lg">
+            <div class="relative h-48 sm:h-52 bg-tech-bg flex items-center justify-center p-2">
+                <img id="modalItemImage" src="" alt="" class="max-h-full max-w-full object-contain">
                 <button onclick="closeItemModal()" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 text-white hover:bg-black flex items-center justify-center backdrop-blur-md transition-colors">
                     <i class="fa-solid fa-xmark text-lg"></i>
                 </button>
@@ -342,59 +349,57 @@
             <div class="p-5 overflow-y-auto space-y-4 flex-1">
                 <div>
                     <h3 id="modalItemTitle" class="text-xl font-bold font-display text-white"></h3>
-                    <p id="modalItemPrice" class="text-blue-400 font-bold text-xl mt-1 font-display"></p>
-                    <p id="modalItemDesc" class="text-xs text-slate-300 mt-2.5 leading-relaxed bg-tech-bg p-3.5 rounded-xl border border-tech-border/80"></p>
+                    <p id="modalItemPrice" class="text-blue-400 font-bold text-lg mt-1 font-display"></p>
+                    <p id="modalItemDesc" class="text-xs text-zinc-300 mt-2.5 leading-relaxed bg-tech-bg p-3.5 rounded-xl border border-tech-border"></p>
                 </div>
 
                 <div class="pt-2">
-                    <label class="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center justify-between">
-                        <span><i class="fa-regular fa-comment-dots text-blue-400 mr-1.5"></i>Detalhes / Especificações do Pedido</span>
-                        <span class="text-[10px] text-slate-500">Opcional</span>
+                    <label class="block text-xs font-semibold text-zinc-300 mb-1.5 flex items-center justify-between">
+                        <span><i class="fa-regular fa-comment-dots text-blue-500 mr-1.5"></i>Observações / Voltagem</span>
+                        <span class="text-[10px] text-zinc-500">Opcional</span>
                     </label>
-                    <textarea id="modalItemObs" rows="2" placeholder="Ex: Voltagem 220v, modelo do gabinete para teste de compatibilidade..." class="w-full bg-tech-bg border border-tech-border rounded-xl p-3 text-xs text-slate-200 placeholder-slate-600 focus:border-blue-600 outline-none resize-none"></textarea>
+                    <textarea id="modalItemObs" rows="2" placeholder="Ex: Voltagem 220v, detalhes de entrega..." class="w-full bg-tech-bg border border-tech-border rounded-xl p-3 text-xs text-zinc-200 placeholder-zinc-600 focus:border-blue-600 outline-none resize-none"></textarea>
                 </div>
             </div>
 
             <div class="p-4 bg-tech-bg border-t border-tech-border flex items-center justify-between gap-3">
                 <div class="flex items-center bg-tech-card border border-tech-border rounded-xl p-1">
-                    <button onclick="changeModalQty(-1)" class="w-9 h-9 rounded-lg bg-tech-subtle hover:bg-slate-800 text-slate-200 flex items-center justify-center transition-colors">
+                    <button onclick="changeModalQty(-1)" class="w-9 h-9 rounded-lg bg-tech-subtle hover:bg-zinc-800 text-zinc-200 flex items-center justify-center transition-colors">
                         <i class="fa-solid fa-minus text-xs"></i>
                     </button>
                     <span id="modalQtyDisplay" class="w-10 text-center font-bold text-sm text-white">1</span>
-                    <button onclick="changeModalQty(1)" class="w-9 h-9 rounded-lg bg-tech-subtle hover:bg-slate-800 text-slate-200 flex items-center justify-center transition-colors">
+                    <button onclick="changeModalQty(1)" class="w-9 h-9 rounded-lg bg-tech-subtle hover:bg-zinc-800 text-zinc-200 flex items-center justify-center transition-colors">
                         <i class="fa-solid fa-plus text-xs"></i>
                     </button>
                 </div>
 
-                <button id="modalAddBtn" onclick="confirmAddItemModal()" class="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-bold text-sm py-3 px-4 rounded-xl flex items-center justify-between transition-colors shadow-lg shadow-blue-950/50">
-                    <span>Adicionar ao Carrinho</span>
+                <button id="modalAddBtn" onclick="confirmAddItemModal()" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm py-3 px-4 rounded-xl flex items-center justify-between transition-colors shadow-lg shadow-blue-950/50">
+                    <span>Adicionar à Sacola</span>
                     <span id="modalSubtotalDisplay" class="font-display">R$ 0,00</span>
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- PAINEL DA SACOLA / CHECKOUT -->
+    <!-- PAINEL DA SACOLA / CARRINHO -->
     <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-end opacity-0 pointer-events-none transition-opacity duration-300">
         <div class="bg-tech-card border-l border-tech-border w-full max-w-md h-full flex flex-col transform translate-x-full transition-transform duration-300 ease-out" id="cartDrawerContent">
             
             <div class="p-4 bg-tech-bg border-b border-tech-border flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                    <i class="fa-solid fa-cart-shopping text-blue-500 text-lg"></i>
-                    <h2 class="font-display font-bold text-lg text-white">Seu Carrinho</h2>
-                    <span id="cartDrawerBadge" class="bg-tech-subtle text-slate-300 text-xs px-2.5 py-0.5 rounded-full font-medium border border-tech-border">0 itens</span>
+                    <i class="fa-solid fa-basket-shopping text-blue-500 text-lg"></i>
+                    <h2 class="font-display font-bold text-lg text-white">Sua Sacola</h2>
+                    <span id="cartDrawerBadge" class="bg-tech-subtle text-zinc-300 text-xs px-2.5 py-0.5 rounded-full font-medium border border-tech-border">0 itens</span>
                 </div>
-                <button onclick="toggleCartDrawer()" class="w-8 h-8 rounded-xl bg-tech-subtle hover:bg-slate-800 text-slate-400 hover:text-white flex items-center justify-center transition-colors">
+                <button onclick="toggleCartDrawer()" class="w-8 h-8 rounded-xl bg-tech-subtle hover:bg-zinc-800 text-zinc-400 hover:text-white flex items-center justify-center transition-colors">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
 
             <div class="flex-1 overflow-y-auto p-4 space-y-6">
-
-                <!-- Lista de Itens -->
                 <div>
                     <div class="flex items-center justify-between mb-2">
-                        <span class="text-xs font-bold text-slate-400 uppercase tracking-wider">Itens Selecionados</span>
+                        <span class="text-xs font-bold text-zinc-400 uppercase tracking-wider">Itens do Pedido</span>
                         <button onclick="clearCart()" id="clearCartBtn" class="text-xs text-red-400 hover:text-red-300 flex items-center gap-1 transition-colors">
                             <i class="fa-regular fa-trash-can"></i> Esvaziar
                         </button>
@@ -403,148 +408,112 @@
                     <div id="cartItemsList" class="space-y-2.5"></div>
 
                     <div id="emptyCartState" class="py-12 text-center">
-                        <div class="w-16 h-16 rounded-full bg-tech-bg border border-tech-border text-slate-600 flex items-center justify-center mx-auto mb-3 text-2xl">
-                            <i class="fa-solid fa-cart-plus"></i>
+                        <div class="w-16 h-16 rounded-full bg-tech-bg border border-tech-border text-zinc-600 flex items-center justify-center mx-auto mb-3 text-2xl">
+                            <i class="fa-solid fa-basket-shopping"></i>
                         </div>
-                        <p class="text-slate-300 font-semibold text-sm">Seu carrinho está vazio</p>
-                        <p class="text-slate-500 text-xs mt-1">Navegue pelas categorias para adicionar produtos e serviços.</p>
+                        <p class="text-zinc-300 font-semibold text-sm">Sua sacola está vazia</p>
+                        <p class="text-zinc-500 text-xs mt-1">Escolha seus produtos e serviços para continuar.</p>
                     </div>
                 </div>
 
-                <!-- Formulário de Checkout -->
                 <div id="checkoutOptionsSection" class="space-y-5 pt-2 border-t border-tech-border">
-                    
-                    <!-- Dados do Cliente -->
                     <div class="space-y-2.5 bg-tech-bg p-3.5 rounded-xl border border-tech-border">
-                        <span class="text-xs font-bold text-slate-300 block flex items-center justify-between">
-                            <span><i class="fa-solid fa-user text-blue-500 mr-1.5"></i>Seus Dados (Salvos Automáticos)</span>
+                        <span class="text-xs font-bold text-zinc-300 block flex items-center justify-between">
+                            <span><i class="fa-solid fa-user text-blue-500 mr-1.5"></i>Seus Dados</span>
                             <span id="savedBadge" class="hidden text-[10px] text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-full"><i class="fa-solid fa-check mr-1"></i>Salvo</span>
                         </span>
                         
                         <div class="grid grid-cols-1 gap-2">
-                            <input type="text" id="custName" onchange="saveCustomerData()" placeholder="Seu Nome Completo *" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-slate-100 placeholder-slate-600 focus:border-blue-600 outline-none">
-                            <input type="tel" id="custPhone" onchange="saveCustomerData()" placeholder="Seu WhatsApp (Ex: 67 99958-4289) *" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-slate-100 placeholder-slate-600 focus:border-blue-600 outline-none">
+                            <input type="text" id="custName" onchange="saveCustomerData()" placeholder="Seu Nome Completo *" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-zinc-100 placeholder-zinc-600 focus:border-blue-600 outline-none">
+                            <input type="tel" id="custPhone" onchange="saveCustomerData()" placeholder="Seu WhatsApp (Ex: 67 99999-9999) *" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-zinc-100 placeholder-zinc-600 focus:border-blue-600 outline-none">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-wider">Modo de Atendimento / Entrega</label>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button onclick="setDeliveryType('delivery')" id="btnDelivery" class="delivery-option active bg-blue-600/20 border-2 border-blue-600 text-white p-3 rounded-xl flex flex-col items-center justify-center text-center transition-all">
-                                <i class="fa-solid fa-truck text-lg text-blue-400 mb-1"></i>
-                                <span class="text-xs font-bold">Entrega / Instalação</span>
-                                <span class="text-[10px] text-slate-400">Em endereço local</span>
-                            </button>
-                            <button onclick="setDeliveryType('pickup')" id="btnPickup" class="delivery-option bg-tech-bg border border-tech-border text-slate-400 hover:text-slate-200 p-3 rounded-xl flex flex-col items-center justify-center text-center transition-all">
-                                <i class="fa-solid fa-store text-lg mb-1"></i>
-                                <span class="text-xs font-bold">Retirada na Loja</span>
-                                <span class="text-[10px] text-slate-500">Sem taxa</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Formulário de Endereço -->
-                    <div id="addressFormSection" class="space-y-2.5 bg-tech-bg p-3.5 rounded-xl border border-tech-border">
-                        <span class="text-xs font-bold text-slate-300 block"><i class="fa-solid fa-location-dot text-blue-500 mr-1.5"></i>Endereço para Entrega ou Serviço</span>
-                        
+                        <label class="block text-xs font-bold text-zinc-300 mb-2 uppercase tracking-wider">Modalidade do Pedido</label>
                         <div class="grid grid-cols-3 gap-2">
-                            <input type="text" id="addrStreet" onchange="saveCustomerData()" placeholder="Rua / Avenida *" class="col-span-2 bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-slate-100 placeholder-slate-600 focus:border-blue-600 outline-none">
-                            <input type="text" id="addrNumber" onchange="saveCustomerData()" placeholder="Nº *" class="bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-slate-100 placeholder-slate-600 focus:border-blue-600 outline-none">
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-2">
-                            <input type="text" id="addrNeighborhood" onchange="saveCustomerData()" placeholder="Bairro *" class="bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-slate-100 placeholder-slate-600 focus:border-blue-600 outline-none">
-                            <input type="text" id="addrComplement" onchange="saveCustomerData()" placeholder="Comp. / Ponto Ref." class="bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-slate-100 placeholder-slate-600 focus:border-blue-600 outline-none">
+                            <button onclick="setServiceMode('pickup')" id="modePickup" class="service-mode-btn bg-tech-bg border border-tech-border text-zinc-400 p-2.5 rounded-xl flex flex-col items-center justify-center text-center text-[11px] font-semibold transition-all">
+                                <i class="fa-solid fa-store mb-1 text-sm"></i> Retirar
+                            </button>
+                            <button onclick="setServiceMode('delivery')" id="modeDelivery" class="service-mode-btn bg-tech-bg border border-tech-border text-zinc-400 p-2.5 rounded-xl flex flex-col items-center justify-center text-center text-[11px] font-semibold transition-all">
+                                <i class="fa-solid fa-truck mb-1 text-sm"></i> Só Entrega
+                            </button>
+                            <button onclick="setServiceMode('install')" id="modeInstall" class="service-mode-btn bg-tech-bg border-2 border-blue-600 text-white p-2.5 rounded-xl flex flex-col items-center justify-center text-center text-[11px] font-semibold transition-all">
+                                <i id="installModeIcon" class="fa-solid fa-tools mb-1 text-sm text-blue-400"></i> 
+                                <span id="installModeText">Instalação</span>
+                            </button>
                         </div>
                     </div>
 
-                    <!-- Seletor de Pagamento -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-2 uppercase tracking-wider">Forma de Pagamento</label>
+                    <div id="installScheduleBox" class="space-y-3 bg-tech-bg p-3.5 rounded-xl border border-tech-border">
+                        <span id="scheduleTitleText" class="text-xs font-bold text-blue-400 block">
+                            <i class="fa-regular fa-calendar-days mr-1.5"></i>Agendar Atendimento
+                        </span>
                         <div class="grid grid-cols-2 gap-2">
-                            <button onclick="setPaymentMethod('pix')" id="payPix" class="pay-option bg-tech-bg border-2 border-blue-600 text-white p-2.5 rounded-xl flex items-center gap-2 text-xs font-semibold">
-                                <i class="fa-brands fa-pix text-emerald-400 text-base"></i>
-                                <span>PIX (0%)</span>
+                            <div>
+                                <label class="text-[10px] text-zinc-400 block mb-1">Data:</label>
+                                <input type="date" id="installDate" onchange="validarDiaAgendamento()" class="w-full bg-tech-card border border-tech-border rounded-lg p-2 text-xs text-zinc-100 outline-none">
+                            </div>
+                            <div>
+                                <label class="text-[10px] text-zinc-400 block mb-1">Horário:</label>
+                                <select id="installTime" class="w-full bg-tech-card border border-tech-border rounded-lg p-2 text-xs text-zinc-100 outline-none">
+                                    <option value="08:00 - 10:00">08:00 - 10:00</option>
+                                    <option value="10:00 - 12:00">10:00 - 12:00</option>
+                                    <option value="13:30 - 15:30">13:30 - 15:30</option>
+                                    <option value="15:30 - 17:30">15:30 - 17:30</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-zinc-300 mb-2 uppercase tracking-wider">Forma de Pagamento</label>
+                        <div class="grid grid-cols-3 gap-2">
+                            <button onclick="setPaymentMethod('pix')" id="payPix" class="pay-option bg-tech-bg border-2 border-blue-600 text-white p-2.5 rounded-xl flex flex-col items-center justify-center text-[11px] font-semibold">
+                                <i class="fa-brands fa-pix text-emerald-400 text-sm mb-1"></i> PIX (0%)
                             </button>
-                            <button onclick="setPaymentMethod('credit')" id="payCredit" class="pay-option bg-tech-bg border border-tech-border text-slate-400 p-2.5 rounded-xl flex items-center gap-2 text-xs font-semibold">
-                                <i class="fa-solid fa-credit-card text-blue-400 text-base"></i>
-                                <span>Cartão Crédito</span>
+                            <button onclick="setPaymentMethod('debit')" id="payDebit" class="pay-option bg-tech-bg border border-tech-border text-zinc-400 p-2.5 rounded-xl flex flex-col items-center justify-center text-[11px] font-semibold">
+                                <i class="fa-solid fa-credit-card text-amber-400 text-sm mb-1"></i> Débito (0.89%)
                             </button>
-                            <button onclick="setPaymentMethod('debit')" id="payDebit" class="pay-option bg-tech-bg border border-tech-border text-slate-400 p-2.5 rounded-xl flex items-center gap-2 text-xs font-semibold">
-                                <i class="fa-solid fa-credit-card text-amber-400 text-base"></i>
-                                <span>Débito (0,89%)</span>
+                            <button onclick="setPaymentMethod('credit')" id="payCredit" class="pay-option bg-tech-bg border border-tech-border text-zinc-400 p-2.5 rounded-xl flex flex-col items-center justify-center text-[11px] font-semibold">
+                                <i class="fa-solid fa-credit-card text-blue-400 text-sm mb-1"></i> Crédito
                             </button>
-                            <button onclick="setPaymentMethod('cash')" id="payCash" class="pay-option bg-tech-bg border border-tech-border text-slate-400 p-2.5 rounded-xl flex items-center gap-2 text-xs font-semibold">
-                                <i class="fa-solid fa-money-bill-wave text-emerald-500 text-base"></i>
-                                <span>Dinheiro</span>
+                            <button onclick="setPaymentMethod('cash')" id="payCash" class="pay-option col-span-3 bg-tech-bg border border-tech-border text-zinc-400 p-2 rounded-xl flex items-center justify-center gap-2 text-xs font-semibold">
+                                <i class="fa-solid fa-money-bill-wave text-emerald-500"></i> Dinheiro
                             </button>
                         </div>
 
-                        <!-- BOX PIX -->
-                        <div id="pixPaymentBox" class="mt-3 bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-3.5 space-y-2">
-                            <div class="flex items-center justify-between">
-                                <span class="text-xs font-bold text-emerald-400 flex items-center gap-1.5"><i class="fa-brands fa-pix"></i> Pagamento via PIX</span>
-                                <span class="text-[10px] text-slate-400">Chave CNPJ</span>
-                            </div>
-                            <p class="text-[11px] text-slate-300">Faça a transferência do valor total e envie o comprovante no WhatsApp ao finalizar.</p>
-                            <div class="flex items-center gap-2 bg-tech-card border border-tech-border p-2 rounded-lg">
-                                <span id="pixKeyText" class="text-xs font-mono font-bold text-white flex-1 select-all">63.777.644/0001-00</span>
-                                <button onclick="copyPixKey()" class="bg-emerald-600 hover:bg-emerald-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-md transition-colors flex items-center gap-1">
-                                    <i class="fa-regular fa-copy"></i> Copiar
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- BOX CARTÃO CRÉDITO COM OPÇÕES DE PARCELAMENTO -->
-                        <div id="cardPaymentBox" class="hidden mt-3 bg-blue-500/10 border border-blue-500/30 rounded-xl p-3.5 space-y-2">
-                            <div class="flex items-center justify-between text-xs font-bold text-blue-400">
-                                <span class="flex items-center gap-1.5"><i class="fa-solid fa-credit-card"></i> Parcelamento no Cartão</span>
-                                <span id="feeNoticeBadge" class="text-[10px] text-slate-400 font-normal">Taxa da máquina inclusa</span>
-                            </div>
-                            <select id="creditInstallmentSelect" onchange="onInstallmentChange()" class="w-full bg-tech-card border border-tech-border rounded-lg p-2.5 text-xs text-slate-100 focus:border-blue-600 outline-none">
-                                <option value="1">1x (Crédito à vista) - Taxa 3,09%</option>
-                                <option value="2">2x - Taxa 5,79%</option>
-                                <option value="3">3x - Taxa 6,09%</option>
-                                <option value="4">4x - Taxa 7,99%</option>
-                                <option value="5">5x - Taxa 8,09%</option>
-                                <option value="6">6x - Taxa 8,19%</option>
-                                <option value="7">7x - Taxa 9,49%</option>
-                                <option value="8">8x - Taxa 9,68%</option>
-                                <option value="9">9x - Taxa 10,37%</option>
-                                <option value="10">10x - Taxa 11,05%</option>
-                                <option value="11">11x - Taxa 12,27%</option>
-                                <option value="12">12x - Taxa 12,38%</option>
+                        <div id="creditInstallmentsBox" class="hidden mt-3 space-y-1.5 bg-tech-bg p-3 rounded-xl border border-tech-border">
+                            <label class="text-[11px] font-bold text-zinc-300 block">Parcelamento no Cartão:</label>
+                            <select id="creditInstallmentsSelect" onchange="updateCartUI()" class="w-full bg-tech-card border border-tech-border rounded-lg p-2 text-xs text-zinc-100 outline-none">
+                                <option value="1">1x (3,09% taxa)</option>
+                                <option value="2">2x (5,79% taxa)</option>
+                                <option value="3">3x (6,09% taxa)</option>
+                                <option value="4">4x (7,99% taxa)</option>
+                                <option value="5">5x (8,09% taxa)</option>
+                                <option value="6">6x (8,19% taxa)</option>
+                                <option value="7">7x (9,49% taxa)</option>
+                                <option value="8">8x (9,68% taxa)</option>
+                                <option value="9">9x (10,37% taxa)</option>
+                                <option value="10">10x (11,05% taxa)</option>
+                                <option value="11">11x (12,27% taxa)</option>
+                                <option value="12">12x (12,38% taxa)</option>
                             </select>
-                            <p class="text-[11px] text-slate-300 leading-relaxed">
-                                Levaremos a máquina de cartão para realizar o pagamento no momento da entrega ou conclusão do serviço!
-                            </p>
-                        </div>
-
-                        <!-- TROCO PARA DINHEIRO -->
-                        <div id="cashChangeSection" class="hidden mt-2">
-                            <input type="text" id="cashChangeInput" placeholder="Troco para quanto? (Ex: R$ 100,00)" class="w-full bg-tech-bg border border-tech-border rounded-lg p-2.5 text-xs text-slate-100 placeholder-slate-600 focus:border-blue-600 outline-none">
                         </div>
                     </div>
 
-                    <!-- Observações Gerais -->
-                    <div>
-                        <label class="block text-xs font-bold text-slate-300 mb-1.5 uppercase tracking-wider">Observações do Pedido / Chamado</label>
-                        <textarea id="orderObs" rows="2" placeholder="Ex: Preferência de horário para atendimento, detalhes do defeito do PC..." class="w-full bg-tech-bg border border-tech-border rounded-xl p-3 text-xs text-slate-200 placeholder-slate-600 focus:border-blue-600 outline-none resize-none"></textarea>
-                    </div>
-
-                    <!-- Resumo Financeiro -->
                     <div class="bg-tech-bg p-3.5 rounded-xl border border-tech-border space-y-2 text-xs">
-                        <div class="flex justify-between text-slate-400">
-                            <span>Subtotal</span>
-                            <span id="summarySubtotal" class="font-medium text-slate-200">R$ 0,00</span>
+                        <div class="flex justify-between text-zinc-400">
+                            <span>Produtos / Serviços</span>
+                            <span id="summarySubtotal" class="font-medium text-zinc-200">R$ 0,00</span>
                         </div>
-                        <div class="flex justify-between text-slate-400">
-                            <span>Taxa da Maquininha</span>
-                            <span id="summaryCardFee" class="font-medium text-amber-400">R$ 0,00</span>
+                        <div id="summaryInstallFeeRow" class="hidden flex justify-between text-zinc-400">
+                            <span id="installFeeLabel">Serviço</span>
+                            <span id="summaryInstallFee" class="font-medium text-zinc-200">R$ 0,00</span>
                         </div>
-                        <div class="flex justify-between text-slate-400">
-                            <span>Taxa de Entrega / Deslocamento</span>
-                            <span id="summaryDeliveryFee" class="font-medium text-slate-200">R$ 0,00</span>
+                        <div id="summaryTaxRow" class="hidden flex justify-between text-zinc-400">
+                            <span id="taxFeeLabel">Taxa</span>
+                            <span id="summaryTaxFee" class="font-medium text-zinc-200">R$ 0,00</span>
                         </div>
                         <div class="border-t border-tech-border pt-2 flex justify-between font-bold text-sm text-white">
                             <span>Total Final</span>
@@ -552,7 +521,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div class="p-4 bg-tech-bg border-t border-tech-border">
@@ -561,865 +529,12 @@
                     <span>Enviar Pedido pelo WhatsApp</span>
                 </button>
             </div>
-
         </div>
     </div>
 
-    <!-- NOTIFICAÇÕES TOAST -->
     <div id="toastContainer" class="fixed top-20 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-    <script>
-        // TABELA DE TAXAS DA MAQUININHA (EM PORCENTAGEM)
-        const PAYMENT_FEES = {
-            pix: 0.00,
-            debit: 0.89,
-            cash: 0.00,
-            credit: {
-                1: 3.09,
-                2: 5.79,
-                3: 6.09,
-                4: 7.99,
-                5: 8.09,
-                6: 8.19,
-                7: 9.49,
-                8: 9.68,
-                9: 10.37,
-                10: 11.05,
-                11: 12.27,
-                12: 12.38
-            }
-        };
-
-        // BANCO DE DADOS TAVINN TI
-        const PRODUCTS_DB = [
-            // CÂMERAS & CFTV
-            {
-                id: 'cam-01',
-                category: 'cameras',
-                name: 'CAMERA PTZ ICSEE LENTE DUPLA 315°',
-                price: 260.00,
-                isHighlight: true,
-                description: 'Câmera inteligente com lente dupla para rastreamento simultâneo, rotação 315°, visão noturna infravermelho e conexão via iCSee.',
-                image: 'https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcREwmjkVurC-kZ5UGqmmmVtMmV-TEXVZl57DPrZ8hrrXSMLc0jZyUU0w2w4oSytJqGBmAicR245BqD8aoszKbFSpl4G1ueWI782leLIiAkcXzz-fXhCLQQrIh0&usqp=CAc',
-                fallbackImage: 'https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'cam-02',
-                category: 'cameras',
-                name: 'CAMERA SPEED DOME ICSEE LENTE DUPLA SENSOR',
-                price: 290.00,
-                isHighlight: false,
-                description: 'Câmera IP externa Speed Dome com sensor avançado de movimento, lentes duplas para maior campo de visão e rotação PTZ.',
-                image: 'https://images.tcdn.com.br/img/img_prod/577903/camera_externa_speed_dome_ip_wi_fi_com_2_lentes_1080p_340o_90o_pan_tilt_3_6mm_sky_2_jl_protec_949_1_48fa17fb1109495df8fdb0e3012b2138.jpg',
-                fallbackImage: 'https://images.unsplash.com/photo-1589820296156-2454bb8a6ad1?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'cam-03',
-                category: 'cameras',
-                name: 'CAMERA PTZ DUPLA C/PLACA SOLAR',
-                price: 450.00,
-                isHighlight: false,
-                description: 'Câmera externa com autonomia solar completa, painel solar integrado, bateria recarregável e tecnologia dual lens via app iCSee.',
-                image: 'https://images.tcdn.com.br/img/img_prod/1408869/cmera_solar_4g_lte_icsee_dual_lens_2mp_externa_com_1_20260611140436_cfd0f2cdd9e1.jpg',
-                fallbackImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?w=800&auto=format&fit=crop&q=80'
-            },
-
-            // HARDWARE & PROCESSADORES
-            {
-                id: 'proc-01',
-                category: 'hardware',
-                name: 'Processador AMD Athlon 3000G, 2-Core, 4-Threads, 3.5GHz, AM4',
-                price: 299.99,
-                isHighlight: false,
-                description: 'Processador de entrada com vídeo integrado Radeon Vega 3, excelente para tarefas do dia a dia, escritórios e home office.',
-                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQf8l48c-nRf73t1GvZLrrnIgRpYEwJqOXC1xUB3PhCDg&s=10',
-                fallbackImage: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'proc-02',
-                category: 'hardware',
-                name: 'Processador AMD Ryzen 3 3200G, 4-Core, 3.6GHz (4GHz Turbo)',
-                price: 439.99,
-                isHighlight: false,
-                description: 'Gráficos integrados Radeon Vega 8, ideal para rodar jogos leves e multitarefas sem necessidade de placa de vídeo dedicada.',
-                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4pNGcntaANOeC4Nasgb4GxmM7UogJCPTG2Gd4k3Z96A&s=10',
-                fallbackImage: 'https://images.unsplash.com/photo-1555680202-c86f0e12f086?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'proc-04',
-                category: 'hardware',
-                name: 'Processador AMD Ryzen 5 5500, 6-Core, 12-Threads, 3.6GHz',
-                price: 539.99,
-                isHighlight: true,
-                description: 'Desempenho de alta escala para jogos e renderização na plataforma AM4 com 12 threads e arquitetura Zen 3.',
-                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxv0OQFuWfyGBDRAgJFgX374mGLbn1R7WR31ub2IhLGA&s=10',
-                fallbackImage: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'gpu-03',
-                category: 'hardware',
-                name: 'Placa de Vídeo Mancer Radeon RX 6600 Streaky V2, 8GB GDDR6',
-                price: 1599.99,
-                isHighlight: true,
-                description: 'A queridinha do Full HD Ultra. 8GB de VRAM GDDR6 para encarar jogos pesados com altíssima taxa de quadros e fluidez.',
-                image: 'https://hotsite.pichau.com.br/descricao/mancer/MCR-RX6600LE-STKV2/MCR-RX6600LE-STK8.png',
-                fallbackImage: 'https://images.unsplash.com/photo-1587202372775-e229f172b9d7?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'gpu-04',
-                category: 'hardware',
-                name: 'Placa de Vídeo XFX Swift Radeon RX 9070 GRE Triple Fan, 12GB',
-                price: 4189.99,
-                isHighlight: false,
-                description: 'Alta performance para rodar jogos em Quad HD (1440p) e 4K com refrigeração Triple Fan e dissipador de alumínio reforçado.',
-                image: 'https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/r/x/rx-97gre29w71.jpg',
-                fallbackImage: 'https://images.unsplash.com/photo-1591488320449-011701bb6704?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'ram-03',
-                category: 'hardware',
-                name: 'Memória Adata XPG Spectrix D35G, RGB, 8GB (1x8GB), DDR4, 3200MHz',
-                price: 599.99,
-                isHighlight: false,
-                description: 'Design dissipador em liga metálica com iluminação RGB sincronizável e alto desempenho para estabilidade em jogos.',
-                image: 'https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/a/x/ax4u32008g16a-swhd35g1.jpg',
-                fallbackImage: 'https://images.unsplash.com/photo-1562976540-1502c2145186?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'ssd-03',
-                category: 'hardware',
-                name: 'SSD Kingston NV3, 1TB, M.2 2280 NVMe (Leitura 6000MB/s)',
-                price: 1154.99,
-                isHighlight: false,
-                description: '1 Terabyte de espaço ultrarrápido para carregamento instantâneo do sistema operacional, jogos e programas pesados.',
-                image: 'https://images.kabum.com.br/produtos/fotos/sync_mirakl/645680/xlarge/SSD-Kingston-1TB-Nv3-M-2-Nvme-PCIe-4-Leitura-6000MB-s-Grava-o-4000MB-s-Snv3s-1000g_1748375089.jpg',
-                fallbackImage: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=800&auto=format&fit=crop&q=80'
-            },
-
-            // ACESSÓRIOS PARA GABINETE & MODDING
-            {
-                id: 'acess-01',
-                category: 'acessorios',
-                name: 'Suporte Para Gabinete Pichau MXT White, Com Rodas',
-                price: 32.99,
-                isHighlight: false,
-                description: 'Largura ajustável de 19,5 a 29cm, feito em ABS de alta resistência com rodízios de 40mm e trava de segurança.',
-                image: 'https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/p/c/pch-mxtwb-wb0116v545.jpg',
-                fallbackImage: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=600&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'acess-02',
-                category: 'acessorios',
-                name: 'Tela Secundária Pichau Aqua Core, 480x480, Preto',
-                price: 176.46,
-                isHighlight: false,
-                description: 'Monitoramento em tempo real de temperaturas e métricas do processador/placa de vídeo diretamente no interior do gabinete.',
-                image: 'https://http2.mlstatic.com/D_NQ_NP_913655-MLA99469976368_112025-O.webp',
-                fallbackImage: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=600&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'acess-03',
-                category: 'acessorios',
-                name: 'Suporte Para Placa de Vídeo Cooler Master Atlas, ARGB',
-                price: 235.28,
-                isHighlight: false,
-                description: 'Estrutura robusta em vidro temperado com iluminação ARGB sincronizável para evitar o envergamento da GPU.',
-                image: 'https://media.pichau.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/m/c/mca-u000r-agsbtg-002.jpg',
-                fallbackImage: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=600&auto=format&fit=crop&q=80'
-            },
-
-            // PERIFÉRICOS
-            {
-                id: 'tec-01',
-                category: 'perifericos',
-                name: 'Stream Deck Neo Elgato, 8 Teclas, Branco (10GBJ9901)',
-                price: 529.99,
-                isHighlight: false,
-                description: 'Mesa de atalhos e automação para criadores de conteúdo e streamers, com 8 teclas personalizáveis com visor dinâmico.',
-                image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800&auto=format&fit=crop&q=80',
-                fallbackImage: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'tec-03',
-                category: 'perifericos',
-                name: 'Teclado Gamer Redragon Shiva 87, RGB, Membrana, TKL ABNT2, USB',
-                price: 119.99,
-                isHighlight: false,
-                description: 'Teclado compacto formato TKL com padrão ABNT2, teclas silenciosas de acionamento macio e suporte a macros programáveis.',
-                image: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=800&auto=format&fit=crop&q=80',
-                fallbackImage: 'https://images.unsplash.com/photo-1618384887929-16ec33fab9ef?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'mou-01',
-                category: 'perifericos',
-                name: 'Mouse Gamer Marvo Duke 20, RGB, 6400DPI, 7 Botões, Wireless, Branco',
-                price: 59.99,
-                isHighlight: false,
-                description: 'Mouse ergonômico sem fio com bateria de longa duração, sensor óptico de alta precisão até 6400 DPI e RGB customizável.',
-                image: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=800&auto=format&fit=crop&q=80',
-                fallbackImage: 'https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'head-01',
-                category: 'perifericos',
-                name: 'Headset Gamer K-Mex AR77, RGB, 7.1 Surround, USB, Preto',
-                price: 49.99,
-                isHighlight: false,
-                description: 'Imersão sonora total com simulador 7.1 Surround, almofadas auriculares macias e microfone flexível com redução de ruído.',
-                image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80',
-                fallbackImage: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'mic-04',
-                category: 'perifericos',
-                name: 'Microfone Dinâmico Gamer Redragon Solara, RGB + Braço Articulado',
-                price: 429.99,
-                isHighlight: false,
-                description: 'Kit de gravação profissional para podcast e live stream. Acompanha microfone dinâmico com pop filter, shock mount e braço articulado.',
-                image: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80',
-                fallbackImage: 'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=800&auto=format&fit=crop&q=80'
-            },
-
-            // MONITORES
-            {
-                id: 'mon-01',
-                category: 'monitores',
-                name: 'Monitor Gamer 24" Full HD 165Hz 1ms IPS',
-                price: 820.00,
-                isHighlight: false,
-                description: 'Painel IPS de cores vivas com taxa de atualização de 165Hz e tempo de resposta de 1ms, sem rastro de imagem (ghosting).',
-                image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=800&auto=format&fit=crop&q=80',
-                fallbackImage: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=800&auto=format&fit=crop&q=80'
-            },
-
-            // SERVIÇOS
-            {
-                id: 'serv-01',
-                category: 'servicos',
-                name: 'Formatação Completa + Limpeza Física de Computador/Notebook',
-                price: 100.00,
-                isHighlight: false,
-                description: 'Instalação limpa do Windows 10/11, drivers atualizados, pacote Office, antivírus, despoeiramento interno e troca de pasta térmica.',
-                image: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800&auto=format&fit=crop&q=80',
-                fallbackImage: 'https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?w=800&auto=format&fit=crop&q=80'
-            },
-            {
-                id: 'serv-02',
-                category: 'servicos',
-                name: 'Montagem de PC Gamer / Desktop Profissional',
-                price: 120.00,
-                isHighlight: false,
-                description: 'Montagem de peças do zero, organização profissional de cabos (Cable Management), atualização de BIOS, testes de temperatura e estabilidade.',
-                image: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=800&auto=format&fit=crop&q=80',
-                fallbackImage: 'https://images.unsplash.com/photo-1587202372634-32705e3bf49c?w=800&auto=format&fit=crop&q=80'
-            }
-        ];
-
-        let state = {
-            cart: [],
-            deliveryType: 'delivery',
-            paymentMethod: 'pix',
-            creditInstallments: 1,
-            deliveryFee: 0.00,
-            activeCategory: 'todos',
-            modalItem: null,
-            modalQty: 1
-        };
-
-        window.addEventListener('DOMContentLoaded', () => {
-            renderProducts();
-            updateCartUI();
-            loadCustomerData();
-        });
-
-        function saveCustomerData() {
-            const customer = {
-                name: document.getElementById('custName').value.trim(),
-                phone: document.getElementById('custPhone').value.trim(),
-                street: document.getElementById('addrStreet').value.trim(),
-                number: document.getElementById('addrNumber').value.trim(),
-                neighborhood: document.getElementById('addrNeighborhood').value.trim(),
-                complement: document.getElementById('addrComplement').value.trim()
-            };
-
-            localStorage.setItem('tavinnti_customer', JSON.stringify(customer));
-            
-            const badge = document.getElementById('savedBadge');
-            if (customer.name || customer.street) {
-                badge.classList.remove('hidden');
-            }
-        }
-
-        function loadCustomerData() {
-            const saved = localStorage.getItem('tavinnti_customer');
-            if (!saved) return;
-
-            try {
-                const customer = JSON.parse(saved);
-                if (customer.name) document.getElementById('custName').value = customer.name;
-                if (customer.phone) document.getElementById('custPhone').value = customer.phone;
-                if (customer.street) document.getElementById('addrStreet').value = customer.street;
-                if (customer.number) document.getElementById('addrNumber').value = customer.number;
-                if (customer.neighborhood) document.getElementById('addrNeighborhood').value = customer.neighborhood;
-                if (customer.complement) document.getElementById('addrComplement').value = customer.complement;
-
-                if (customer.name || customer.street) {
-                    document.getElementById('savedBadge').classList.remove('hidden');
-                }
-            } catch (e) {
-                console.error('Erro ao carregar dados:', e);
-            }
-        }
-
-        function copyPixKey() {
-            const pixKey = document.getElementById('pixKeyText').innerText;
-            navigator.clipboard.writeText(pixKey).then(() => {
-                showToast('Chave PIX copiada com sucesso!');
-            }).catch(() => {
-                showToast('Erro ao copiar chave PIX.', 'error');
-            });
-        }
-
-        function formatCurrency(val) {
-            return val.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-        }
-
-        function getCardFeeRate() {
-            if (state.paymentMethod === 'debit') return PAYMENT_FEES.debit;
-            if (state.paymentMethod === 'credit') {
-                return PAYMENT_FEES.credit[state.creditInstallments] || 3.09;
-            }
-            return 0.00;
-        }
-
-        function onInstallmentChange() {
-            const select = document.getElementById('creditInstallmentSelect');
-            state.creditInstallments = parseInt(select.value, 10);
-            updateCartUI();
-        }
-
-        function renderProducts() {
-            const containers = {
-                highlights: document.getElementById('highlightsContainer'),
-                cameras: document.getElementById('camerasContainer'),
-                hardware: document.getElementById('hardwareContainer'),
-                acessorios: document.getElementById('acessoriosContainer'),
-                perifericos: document.getElementById('perifericosContainer'),
-                monitores: document.getElementById('monitoresContainer'),
-                servicos: document.getElementById('servicosContainer')
-            };
-
-            Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
-
-            PRODUCTS_DB.forEach(product => {
-                const cardHTML = createProductCardHTML(product);
-
-                if (product.isHighlight && containers.highlights) {
-                    containers.highlights.innerHTML += createHighlightCardHTML(product);
-                }
-
-                if (containers[product.category]) {
-                    containers[product.category].innerHTML += cardHTML;
-                }
-            });
-        }
-
-        function createProductCardHTML(item) {
-            const cartQty = getItemCartQuantity(item.id);
-            return `
-                <div class="product-card bg-tech-card border border-tech-border/80 hover:border-blue-500/50 rounded-2xl p-3.5 flex gap-3.5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10 cursor-pointer group" onclick="openItemModal('${item.id}')">
-                    <div class="flex-1 flex flex-col justify-between">
-                        <div>
-                            <h4 class="font-bold text-xs sm:text-sm text-slate-100 group-hover:text-blue-400 transition-colors leading-snug">${item.name}</h4>
-                            <p class="text-[11px] text-slate-400 mt-1 line-clamp-2 leading-relaxed">${item.description}</p>
-                        </div>
-                        <div class="mt-2.5 flex items-center justify-between">
-                            <div>
-                                <span class="text-[9px] text-slate-500 block uppercase font-bold">À vista no PIX</span>
-                                <span class="font-display font-extrabold text-sm sm:text-base text-white">${formatCurrency(item.price)}</span>
-                            </div>
-                            
-                            <button onclick="event.stopPropagation(); openItemModal('${item.id}')" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold text-[11px] px-2.5 py-1.5 rounded-xl flex items-center gap-1 transition-all shadow-md shadow-blue-950/40">
-                                <i class="fa-solid fa-plus text-[9px]"></i>
-                                <span>${cartQty > 0 ? `Adicionado (${cartQty})` : 'Adicionar'}</span>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <figure class="flex flex-col items-center justify-center flex-shrink-0">
-                        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-slate-950/50 border border-tech-border/80 p-1 flex items-center justify-center">
-                            <img src="${item.image}" alt="${item.name}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 filter drop-shadow" onerror="this.onerror=null; this.src='${item.fallbackImage}';">
-                        </div>
-                        <figcaption class="text-[9px] text-slate-400 mt-1 font-medium text-center line-clamp-1 max-w-[70px]">
-                            ${item.name}
-                        </figcaption>
-                    </figure>
-                </div>
-            `;
-        }
-
-        function createHighlightCardHTML(item) {
-            return `
-                <div class="bg-gradient-to-br from-tech-card via-tech-card to-tech-subtle border border-blue-500/40 rounded-2xl p-4 flex flex-col justify-between hover:border-blue-400 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/20 cursor-pointer relative overflow-hidden group" onclick="openItemModal('${item.id}')">
-                    <div class="absolute top-0 right-0 bg-gradient-to-r from-blue-600 to-cyan-500 text-white text-[9px] font-extrabold px-3 py-0.5 rounded-bl-lg uppercase tracking-wider shadow-md">
-                        Destaque
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-xs sm:text-sm text-white group-hover:text-blue-400 transition-colors leading-snug pr-14">${item.name}</h4>
-                        <p class="text-[11px] text-slate-400 line-clamp-2 mt-1 leading-relaxed">${item.description}</p>
-                    </div>
-                    <div class="flex items-center justify-between mt-3 pt-2 border-t border-tech-border/60">
-                        <div>
-                            <span class="text-[9px] text-emerald-400 font-bold block uppercase">Preço Especial</span>
-                            <span class="font-display font-extrabold text-sm sm:text-base text-blue-400">${formatCurrency(item.price)}</span>
-                        </div>
-                        <span class="text-[11px] font-semibold text-slate-200 bg-blue-600/20 border border-blue-500/30 px-2.5 py-1 rounded-lg hover:bg-blue-600 hover:text-white transition-all">
-                            Ver Detalhes
-                        </span>
-                    </div>
-                </div>
-            `;
-        }
-
-        function filterCategory(cat) {
-            state.activeCategory = cat;
-
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                if (btn.getAttribute('data-cat') === cat) {
-                    btn.className = "category-btn active bg-blue-600 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all shadow-md shadow-blue-900/40";
-                } else {
-                    btn.className = "category-btn bg-tech-card hover:bg-slate-800 text-slate-300 border border-tech-border font-medium text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap transition-all";
-                }
-            });
-
-            const sections = document.querySelectorAll('.menu-section');
-            const noResults = document.getElementById('noResultsState');
-            noResults.classList.add('hidden');
-
-            if (cat === 'todos') {
-                sections.forEach(s => s.classList.remove('hidden'));
-            } else {
-                sections.forEach(s => {
-                    if (s.id === `section-${cat}`) {
-                        s.classList.remove('hidden');
-                    } else {
-                        s.classList.add('hidden');
-                    }
-                });
-            }
-        }
-
-        function handleSearch() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            const clearBtn = document.getElementById('clearSearchBtn');
-            const noResults = document.getElementById('noResultsState');
-
-            if (query.length > 0) {
-                clearBtn.classList.remove('hidden');
-            } else {
-                clearBtn.classList.add('hidden');
-            }
-
-            let matchesCount = 0;
-
-            document.querySelectorAll('.product-card').forEach(card => {
-                const title = card.querySelector('h4').textContent.toLowerCase();
-                const desc = card.querySelector('p').textContent.toLowerCase();
-
-                if (title.includes(query) || desc.includes(query)) {
-                    card.classList.remove('hidden');
-                    matchesCount++;
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-
-            document.querySelectorAll('.menu-section').forEach(sec => {
-                const visibleCards = sec.querySelectorAll('.product-card:not(.hidden)');
-                if (visibleCards.length === 0 && query.length > 0) {
-                    sec.classList.add('hidden');
-                } else {
-                    sec.classList.remove('hidden');
-                }
-            });
-
-            if (matchesCount === 0 && query.length > 0) {
-                noResults.classList.remove('hidden');
-            } else {
-                noResults.classList.add('hidden');
-            }
-        }
-
-        function clearSearch() {
-            const searchInput = document.getElementById('searchInput');
-            searchInput.value = '';
-            handleSearch();
-            filterCategory(state.activeCategory);
-        }
-
-        function openItemModal(productId) {
-            const product = PRODUCTS_DB.find(p => p.id === productId);
-            if (!product) return;
-
-            state.modalItem = product;
-            state.modalQty = 1;
-
-            document.getElementById('modalItemTitle').textContent = product.name;
-            document.getElementById('modalItemPrice').textContent = formatCurrency(product.price);
-            document.getElementById('modalItemDesc').textContent = product.description;
-
-            const imgEl = document.getElementById('modalItemImage');
-            imgEl.src = product.image;
-            imgEl.onerror = () => { imgEl.src = product.fallbackImage; };
-
-            document.getElementById('modalItemObs').value = '';
-
-            updateModalPriceDisplay();
-
-            const modal = document.getElementById('itemModal');
-            const content = document.getElementById('itemModalContent');
-            modal.classList.remove('opacity-0', 'pointer-events-none');
-            content.classList.remove('translate-y-8');
-        }
-
-        function closeItemModal() {
-            const modal = document.getElementById('itemModal');
-            const content = document.getElementById('itemModalContent');
-            modal.classList.add('opacity-0', 'pointer-events-none');
-            content.classList.add('translate-y-8');
-        }
-
-        function changeModalQty(delta) {
-            state.modalQty = Math.max(1, state.modalQty + delta);
-            updateModalPriceDisplay();
-        }
-
-        function updateModalPriceDisplay() {
-            document.getElementById('modalQtyDisplay').textContent = state.modalQty;
-            const subtotal = (state.modalItem ? state.modalItem.price : 0) * state.modalQty;
-            document.getElementById('modalSubtotalDisplay').textContent = formatCurrency(subtotal);
-        }
-
-        function confirmAddItemModal() {
-            if (!state.modalItem) return;
-
-            const obs = document.getElementById('modalItemObs').value.trim();
-
-            addToCart(state.modalItem.id, state.modalQty, obs);
-            closeItemModal();
-            showToast(`Adicionado: ${state.modalItem.name}`);
-        }
-
-        function addToCart(productId, qty = 1, obs = '') {
-            const product = PRODUCTS_DB.find(p => p.id === productId);
-            if (!product) return;
-
-            const existingIndex = state.cart.findIndex(i => i.id === productId && i.obs === obs);
-
-            if (existingIndex > -1) {
-                state.cart[existingIndex].quantity += qty;
-            } else {
-                state.cart.push({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    quantity: qty,
-                    obs: obs
-                });
-            }
-
-            updateCartUI();
-            renderProducts();
-        }
-
-        function changeCartQty(index, delta) {
-            state.cart[index].quantity += delta;
-            if (state.cart[index].quantity <= 0) {
-                state.cart.splice(index, 1);
-            }
-            updateCartUI();
-            renderProducts();
-        }
-
-        function removeFromCart(index) {
-            state.cart.splice(index, 1);
-            updateCartUI();
-            renderProducts();
-        }
-
-        function clearCart() {
-            state.cart = [];
-            updateCartUI();
-            renderProducts();
-            showToast('Carrinho esvaziado');
-        }
-
-        function getItemCartQuantity(productId) {
-            return state.cart
-                .filter(item => item.id === productId)
-                .reduce((sum, item) => sum + item.quantity, 0);
-        }
-
-        function updateCartUI() {
-            const totalCount = state.cart.reduce((sum, item) => sum + item.quantity, 0);
-            const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            
-            const feeRate = getCardFeeRate();
-            const cardFeeAmount = subtotal * (feeRate / 100);
-            
-            const deliveryFee = state.deliveryType === 'delivery' ? state.deliveryFee : 0;
-            const total = subtotal + cardFeeAmount + deliveryFee;
-
-            document.getElementById('floatingCartCount').textContent = totalCount;
-            document.getElementById('cartDrawerBadge').textContent = `${totalCount} itens`;
-
-            const headerBadge = document.getElementById('headerCartBadge');
-            if (totalCount > 0) {
-                headerBadge.textContent = totalCount;
-                headerBadge.classList.remove('hidden');
-            } else {
-                headerBadge.classList.add('hidden');
-            }
-
-            document.getElementById('floatingCartTotal').textContent = formatCurrency(totalCount > 0 ? total : 0);
-            document.getElementById('summarySubtotal').textContent = formatCurrency(subtotal);
-            document.getElementById('summaryCardFee').textContent = `${formatCurrency(cardFeeAmount)} (${feeRate}%)`;
-            document.getElementById('summaryDeliveryFee').textContent = formatCurrency(deliveryFee);
-            document.getElementById('summaryTotal').textContent = formatCurrency(total);
-
-            const itemsList = document.getElementById('cartItemsList');
-            const emptyState = document.getElementById('emptyCartState');
-            const checkoutSection = document.getElementById('checkoutOptionsSection');
-            const clearCartBtn = document.getElementById('clearCartBtn');
-
-            if (state.cart.length === 0) {
-                itemsList.innerHTML = '';
-                emptyState.classList.remove('hidden');
-                checkoutSection.classList.add('opacity-40', 'pointer-events-none');
-                clearCartBtn.classList.add('hidden');
-            } else {
-                emptyState.classList.add('hidden');
-                checkoutSection.classList.remove('opacity-40', 'pointer-events-none');
-                clearCartBtn.classList.remove('hidden');
-
-                itemsList.innerHTML = state.cart.map((item, idx) => `
-                    <div class="bg-tech-bg p-3 rounded-xl border border-tech-border flex items-center justify-between gap-3">
-                        <div class="flex-1">
-                            <h5 class="text-xs font-bold text-white leading-snug">${item.name}</h5>
-                            <span class="text-xs font-display font-semibold text-blue-400 block mt-0.5">${formatCurrency(item.price * item.quantity)}</span>${item.obs ? `<p class="text-[10px] text-slate-400 mt-1 italic"><i class="fa-regular fa-comment mr-1"></i>${item.obs}</p>` : ''}
-                        </div>
-
-                        <div class="flex items-center gap-1.5 bg-tech-card border border-tech-border p-1 rounded-lg">
-                            <button onclick="changeCartQty(${idx}, -1)" class="w-6 h-6 rounded bg-tech-subtle text-slate-200 hover:bg-slate-700 flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-minus text-[10px]"></i>
-                            </button>
-                            <span class="w-5 text-center font-bold text-xs text-white">${item.quantity}</span>
-                            <button onclick="changeCartQty(${idx}, 1)" class="w-6 h-6 rounded bg-tech-subtle text-slate-200 hover:bg-slate-700 flex items-center justify-center text-xs">
-                                <i class="fa-solid fa-plus text-[10px]"></i>
-                            </button>
-                        </div>
-
-                        <button onclick="removeFromCart(${idx})" class="text-slate-500 hover:text-red-400 text-xs p-1">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button>
-                    </div>
-                `).join('');
-            }
-
-            const sendBtn = document.getElementById('sendWhatsAppBtn');
-            sendBtn.disabled = state.cart.length === 0;
-        }
-
-        function setDeliveryType(type) {
-            state.deliveryType = type;
-            const btnDelivery = document.getElementById('btnDelivery');
-            const btnPickup = document.getElementById('btnPickup');
-            const addrForm = document.getElementById('addressFormSection');
-
-            if (type === 'delivery') {
-                btnDelivery.className = "delivery-option active bg-blue-600/20 border-2 border-blue-600 text-white p-3 rounded-xl flex flex-col items-center justify-center text-center transition-all";
-                btnPickup.className = "delivery-option bg-tech-bg border border-tech-border text-slate-400 hover:text-slate-200 p-3 rounded-xl flex flex-col items-center justify-center text-center transition-all";
-                addrForm.classList.remove('hidden');
-            } else {
-                btnPickup.className = "delivery-option active bg-blue-600/20 border-2 border-blue-600 text-white p-3 rounded-xl flex flex-col items-center justify-center text-center transition-all";
-                btnDelivery.className = "delivery-option bg-tech-bg border border-tech-border text-slate-400 hover:text-slate-200 p-3 rounded-xl flex flex-col items-center justify-center text-center transition-all";
-                addrForm.classList.add('hidden');
-            }
-
-            updateCartUI();
-        }
-
-        function setPaymentMethod(method) {
-            state.paymentMethod = method;
-            const options = ['pix', 'credit', 'debit', 'cash'];
-
-            options.forEach(m => {
-                const el = document.getElementById(`pay${m.charAt(0).toUpperCase() + m.slice(1)}`);
-                if (m === method) {
-                    el.className = "pay-option bg-tech-bg border-2 border-blue-600 text-white p-2.5 rounded-xl flex items-center gap-2 text-xs font-semibold";
-                } else {
-                    el.className = "pay-option bg-tech-bg border border-tech-border text-slate-400 p-2.5 rounded-xl flex items-center gap-2 text-xs font-semibold";
-                }
-            });
-
-            const cashChangeSection = document.getElementById('cashChangeSection');
-            const pixBox = document.getElementById('pixPaymentBox');
-            const cardBox = document.getElementById('cardPaymentBox');
-
-            if (method === 'cash') {
-                cashChangeSection.classList.remove('hidden');
-            } else {
-                cashChangeSection.classList.add('hidden');
-            }
-
-            if (method === 'pix') {
-                pixBox.classList.remove('hidden');
-            } else {
-                pixBox.classList.add('hidden');
-            }
-
-            if (method === 'credit') {
-                cardBox.classList.remove('hidden');
-            } else {
-                cardBox.classList.add('hidden');
-            }
-
-            updateCartUI();
-        }
-
-        function toggleCartDrawer() {
-            const drawer = document.getElementById('cartDrawer');
-            const content = document.getElementById('cartDrawerContent');
-
-            if (drawer.classList.contains('opacity-0')) {
-                drawer.classList.remove('opacity-0', 'pointer-events-none');
-                content.classList.remove('translate-x-full');
-            } else {
-                drawer.classList.add('opacity-0', 'pointer-events-none');
-                content.classList.add('translate-x-full');
-            }
-        }
-
-        function submitOrderToWhatsApp() {
-            const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-
-            if (state.cart.length === 0) {
-                showToast('Seu carrinho está vazio!', 'error');
-                return;
-            }
-
-            const custName = document.getElementById('custName').value.trim();
-            const custPhone = document.getElementById('custPhone').value.trim();
-
-            if (!custName || !custPhone) {
-                showToast('Por favor, preencha seu Nome e Telefone/WhatsApp.', 'error');
-                return;
-            }
-
-            let addressLines = [];
-            if (state.deliveryType === 'delivery') {
-                const street = document.getElementById('addrStreet').value.trim();
-                const number = document.getElementById('addrNumber').value.trim();
-                const neighborhood = document.getElementById('addrNeighborhood').value.trim();
-                const complement = document.getElementById('addrComplement').value.trim();
-
-                if (!street || !number || !neighborhood) {
-                    showToast('Preencha o endereço completo para entrega ou serviço.', 'error');
-                    return;
-                }
-
-                addressLines.push(`📍 *Endereço para Entrega / Instalação:*`);
-                addressLines.push(`${street}, Nº ${number} - Bairro: ${neighborhood}${complement ? ` (${complement})` : ''}`);
-            } else {
-                addressLines.push(`🏢 *Opção de Retirada:* Retirar na Loja Tavinn TI`);
-            }
-
-            saveCustomerData();
-
-            const feeRate = getCardFeeRate();
-            const cardFeeAmount = subtotal * (feeRate / 100);
-
-            let paymentLabel = '';
-            if (state.paymentMethod === 'pix') paymentLabel = 'PIX à Vista (CNPJ: 63.777.644/0001-00)';
-            if (state.paymentMethod === 'debit') paymentLabel = `Cartão Débito (+0,89% taxa = ${formatCurrency(cardFeeAmount)})`;
-            if (state.paymentMethod === 'credit') {
-                const inst = state.creditInstallments;
-                paymentLabel = `Cartão Crédito em ${inst}x (+${feeRate}\% taxa =${formatCurrency(cardFeeAmount)})`;
-            }
-            if (state.paymentMethod === 'cash') {
-                const change = document.getElementById('cashChangeInput').value.trim();
-                paymentLabel = `Dinheiro${change ? ` (Troco para: ${change})` : ' (Sem troco)'}`;
-            }
-
-            const orderObs = document.getElementById('orderObs').value.trim();
-            const deliveryFee = state.deliveryType === 'delivery' ? state.deliveryFee : 0;
-            const total = subtotal + cardFeeAmount + deliveryFee;
-
-            // Construção array de linhas para formatação perfeita sem quebras inesperadas de URI
-            let lines = [];
-            lines.push(`💻 *NOVO PEDIDO / SOLICITAÇÃO - TAVINN TI*`);
-            lines.push(`-----------------------------------`);
-            lines.push(``);
-            lines.push(`👤 *CLIENTE:* ${custName}`);
-            lines.push(`📱 *TELEFONE:* ${custPhone}`);
-            lines.push(``);
-            lines.push(`📋 *ITENS / SERVIÇOS SOLICITADOS:*`);
-
-            state.cart.forEach((item, i) => {
-                lines.push(`${i + 1}. *${item.quantity}x* ${item.name} -${formatCurrency(item.price * item.quantity)}`);
-                if (item.obs) lines.push(`   └ _Obs: ${item.obs}_`);
-            });
-
-            lines.push(``);
-            lines.push(`-----------------------------------`);
-            lines.push(`💵 *RESUMO DE VALORES:*`);
-            lines.push(`Subtotal: ${formatCurrency(subtotal)}`);
-            if (cardFeeAmount > 0) {
-                lines.push(`Taxa Cartão (${feeRate}\%):${formatCurrency(cardFeeAmount)}`);
-            }
-            lines.push(`*Total Final: ${formatCurrency(total)}*`);
-            lines.push(``);
-            lines.push(`-----------------------------------`);
-            addressLines.forEach(l => lines.push(l));
-            lines.push(`💳 *Forma de Pagamento:* ${paymentLabel}`);
-
-            if (orderObs) {
-                lines.push(`📝 *Observações:* ${orderObs}`);
-            }
-
-            lines.push(``);
-            lines.push(`-----------------------------------`);
-            lines.push(`Aguardando atendimento do suporte. Obrigado! 🚀`);
-
-            const fullText = lines.join('\n');
-            const whatsappNum = '5567999584289';
-            
-            // Endpoint oficial da API do WhatsApp com o parâmetro 'text' codificado corretamente
-            const whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNum}&text=${encodeURIComponent(fullText)}`;
-
-            window.open(whatsappUrl, '_blank');
-        }
-
-        function showToast(message, type = 'success') {
-            const container = document.getElementById('toastContainer');
-            const toast = document.createElement('div');
-
-            const bgColor = type === 'error' ? 'bg-red-600' : 'bg-tech-card border border-tech-border';
-
-            toast.className = `${bgColor} text-white text-xs font-semibold px-4 py-3 rounded-xl shadow-2xl flex items-center gap-2 transform translate-x-10 opacity-0 transition-all duration-200 pointer-events-auto`;
-            toast.innerHTML = `<i class="fa-solid ${type === 'error' ? 'fa-circle-exclamation' : 'fa-circle-check text-emerald-400'}"></i> <span>${message}</span>`;
-
-            container.appendChild(toast);
-
-            setTimeout(() => {
-                toast.classList.remove('translate-x-10', 'opacity-0');
-            }, 10);
-
-            setTimeout(() => {
-                toast.classList.add('translate-x-10', 'opacity-0');
-                setTimeout(() => toast.remove(), 200);
-            }, 3000);
-        }
-    </script>
+    <script src="assets/js/products-db.js"></script>
+    <script src="assets/js/cart.js"></script>
 </body>
 </html>

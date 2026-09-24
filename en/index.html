@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tavinn TI - IT Solutions, CCTV, Gaming & Software Development</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { tech: { bg: '#080d1a', card: '#0f172a', border: '#1e293b', subtle: '#182238', accent: '#3b82f6', glow: '#2563eb' } },
+                    fontFamily: { sans: ['Inter', 'sans-serif'], display: ['Outfit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #080d1a; color: #f8fafc; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-header { background: rgba(8, 13, 26, 0.88); backdrop-filter: blur(18px); }
+        .glass-panel { background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(16px); }
+    </style>
+</head>
+<body class="bg-tech-bg text-slate-100 min-h-screen pb-28 selection:bg-blue-600 selection:text-white">
+
+    <!-- TOP HEADER -->
+    <header class="sticky top-0 z-30 glass-header border-b border-tech-border/80 transition-all duration-200">
+        <div class="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 p-0.5 shadow-lg shadow-blue-900/30 flex-shrink-0">
+                    <div class="w-full h-full bg-tech-bg rounded-[10px] flex items-center justify-center text-blue-400 font-bold text-lg">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-display font-extrabold text-base md:text-lg leading-tight text-white tracking-wide flex items-center gap-2">
+                        Tavinn TI <span class="hidden sm:inline-block text-[10px] font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/30 px-2 py-0.5 rounded-full">Global Tech & Games</span>
+                    </h1>
+                    <span class="text-[11px] text-slate-400 flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Remote IT & Game Development
+                    </span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <!-- LANGUAGE SWITCHER -->
+                <div class="flex items-center bg-tech-subtle border border-tech-border rounded-xl p-1 text-xs font-semibold">
+                    <a href="/" class="px-2 py-1 text-slate-400 hover:text-white transition-colors">PT</a>
+                    <span class="px-2 py-1 bg-blue-600 text-white rounded-lg shadow">EN</span>
+                    <a href="/es/" class="px-2 py-1 text-slate-400 hover:text-white transition-colors">ES</a>
+                </div>
+
+                <a href="https://instagram.com/tavinn.ti" target="_blank" class="flex items-center gap-1.5 text-xs font-semibold bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-2.5 rounded-xl shadow-md">
+                    <i class="fa-brands fa-instagram text-sm"></i>
+                    <span class="hidden sm:inline">Instagram</span>
+                </a>
+                
+                <a href="https://wa.me/5567999584289" target="_blank" class="hidden sm:flex items-center gap-2 text-xs font-semibold bg-tech-subtle hover:bg-slate-800 text-slate-200 px-3.5 py-2.5 rounded-xl border border-tech-border">
+                    <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+                    <span>(67) 99958-4289</span>
+                </a>
+                <button onclick="toggleCartDrawer()" class="relative p-2.5 rounded-xl bg-tech-subtle hover:bg-slate-800 border border-tech-border text-slate-200 transition-colors">
+                    <i class="fa-solid fa-cart-shopping text-base"></i>
+                    <span id="headerCartBadge" class="hidden absolute -top-1.5 -right-1.5 bg-blue-600 text-white text-[10px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border-2 border-tech-bg">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-gradient-to-b from-slate-900/90 via-tech-card/60 to-tech-bg border-b border-tech-border/60 py-10 px-4 overflow-hidden">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+            <div class="space-y-3 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs px-3.5 py-1.5 rounded-full font-semibold">
+                    <i class="fa-solid fa-gamepad text-cyan-400"></i> Global IT Infrastructure & Game Development
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white tracking-tight leading-snug">
+                    Level Up Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Tech & Software</span>
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
+                    Offering remote IT consulting, custom software solutions, indie game prototyping (Python/HTML5/Flutter), and advanced hardware for global clients.
+                </p>
+            </div>
+
+            <div class="w-full md:w-80">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
+                    <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Search game dev, hardware, support..." class="w-full bg-tech-bg/90 border border-tech-border focus:border-blue-500 rounded-xl pl-10 pr-10 py-3.5 text-xs text-slate-100 placeholder-slate-500 outline-none">
+                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 text-xs p-1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATEGories -->
+    <nav class="sticky top-[65px] z-20 bg-tech-bg/90 backdrop-blur-md border-b border-tech-border/80 shadow-md">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-3 scroll-smooth" id="categoryTabs">
+                <button onclick="filterCategory('todos')" data-cat="todos" class="category-btn active bg-blue-600 text-white font-semibold text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap shadow-md">All Products</button>
+                <button onclick="filterCategory('gamedev')" data-cat="gamedev" class="category-btn bg-tech-card hover:bg-slate-800 text-slate-300 border border-tech-border text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap">🎮 Game Dev & Software</button>
+                <button onclick="filterCategory('cameras')" data-cat="cameras" class="category-btn bg-tech-card hover:bg-slate-800 text-slate-300 border border-tech-border text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap">📹 Cameras & CCTV</button>
+                <button onclick="filterCategory('hardware')" data-cat="hardware" class="category-btn bg-tech-card hover:bg-slate-800 text-slate-300 border border-tech-border text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap">🖥️ Hardware</button>
+                <button onclick="filterCategory('servicos')" data-cat="servicos" class="category-btn bg-tech-card hover:bg-slate-800 text-slate-300 border border-tech-border text-xs sm:text-sm px-4 py-2 rounded-xl whitespace-nowrap">🛠️ Remote IT Support</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-10">
+        <section id="section-destaques" class="menu-section">
+            <h3 class="font-display font-extrabold text-xl text-white flex items-center gap-2 mb-4">
+                <span class="text-blue-500 text-2xl">🔥</span> Global Highlights & Game Dev
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="highlightsContainer"></div>
+        </section>
+
+        <section id="section-gamedev" class="menu-section pt-2"><h3 class="font-display font-bold text-xl text-white mb-4">🎮 Game Development & Software Solutions</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="gamedevContainer"></div></section>
+        <section id="section-cameras" class="menu-section pt-2"><h3 class="font-display font-bold text-xl text-white mb-4">📹 Security Cameras & CCTV</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="camerasContainer"></div></section>
+        <section id="section-hardware" class="menu-section pt-2"><h3 class="font-display font-bold text-xl text-white mb-4">🖥️ Computer Parts & Hardware</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="hardwareContainer"></div></section>
+        <section id="section-servicos" class="menu-section pt-2"><h3 class="font-display font-bold text-xl text-white mb-4">🛠️ Remote IT Consulting & Support</h3><div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="servicosContainer"></div></section>
+
+        <div id="noResultsState" class="hidden py-16 text-center">
+            <h4 class="text-slate-300 font-bold text-base">No services or products found</h4>
+            <button onclick="clearSearch()" class="mt-4 bg-blue-600 text-white text-xs font-semibold px-4 py-2 rounded-xl">Clear search</button>
+        </div>
+    </main>
+
+    <!-- FLOATING CART BAR -->
+    <div id="floatingCartBar" class="fixed bottom-0 inset-x-0 z-30 p-3 sm:p-4 glass-panel border-t border-tech-border/80 shadow-2xl">
+        <div class="max-w-6xl mx-auto flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+                <div class="relative w-11 h-11 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 text-white flex items-center justify-center font-bold">
+                    <i class="fa-solid fa-cart-flatbed"></i>
+                    <span id="floatingCartCount" class="absolute -top-1.5 -right-1.5 bg-white text-blue-600 font-extrabold text-[11px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-slate-900">0</span>
+                </div>
+                <div>
+                    <span class="text-[11px] text-slate-400 block uppercase font-semibold">Total</span>
+                    <span id="floatingCartTotal" class="text-base sm:text-lg font-bold text-white font-display">R$ 0,00</span>
+                </div>
+            </div>
+            <button onclick="toggleCartDrawer()" class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-xs sm:text-sm px-6 py-3.5 rounded-xl">View Cart</button>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div id="itemModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 opacity-0 pointer-events-none transition-opacity">
+        <div class="bg-tech-card border border-tech-border w-full max-w-lg rounded-t-3xl sm:rounded-2xl overflow-hidden shadow-2xl flex flex-col" id="itemModalContent">
+            <div class="relative h-44 bg-slate-950 p-4 flex items-center justify-center">
+                <img id="modalItemImage" src="" alt="" class="max-h-full max-w-full object-contain">
+                <button onclick="closeItemModal()" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-5 space-y-4">
+                <h3 id="modalItemTitle" class="text-xl font-bold text-white"></h3>
+                <p id="modalItemPrice" class="text-blue-400 font-bold text-xl"></p>
+                <p id="modalItemDesc" class="text-xs text-slate-300 bg-tech-bg p-3.5 rounded-xl border border-tech-border"></p>
+                <textarea id="modalItemObs" rows="2" placeholder="Optional specifications or custom project details..." class="w-full bg-tech-bg border border-tech-border rounded-xl p-3 text-xs text-slate-200 outline-none"></textarea>
+            </div>
+            <div class="p-4 bg-tech-bg border-t border-tech-border flex justify-between gap-3">
+                <button onclick="confirmAddItemModal()" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm py-3 rounded-xl">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CART DRAWER -->
+    <div id="cartDrawer" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-end opacity-0 pointer-events-none transition-opacity">
+        <div class="bg-tech-card border-l border-tech-border w-full max-w-md h-full flex flex-col transform translate-x-full transition-transform" id="cartDrawerContent">
+            <div class="p-4 bg-tech-bg border-b border-tech-border flex items-center justify-between">
+                <h2 class="font-display font-bold text-lg text-white">Your Cart</h2>
+                <button onclick="toggleCartDrawer()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="flex-1 overflow-y-auto p-4 space-y-4" id="cartItemsList"></div>
+            <div class="p-4 bg-tech-bg border-t border-tech-border">
+                <button onclick="submitOrderToWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm py-3.5 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Send Inquiry via WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="products-db-en.js"></script>
+    <script>
+        let state = { cart: [], activeCategory: 'todos', modalItem: null, modalQty: 1 };
+        window.addEventListener('DOMContentLoaded', () => { renderProducts(); updateCartUI(); });
+        function renderProducts() {
+            const containers = { highlights: document.getElementById('highlightsContainer'), gamedev: document.getElementById('gamedevContainer'), cameras: document.getElementById('camerasContainer'), hardware: document.getElementById('hardwareContainer'), servicos: document.getElementById('servicosContainer') };
+            Object.values(containers).forEach(c => { if(c) c.innerHTML = ''; });
+            PRODUCTS_DB.forEach(product => {
+                const html = `<div class="bg-tech-card border border-tech-border p-3.5 rounded-2xl flex flex-col justify-between cursor-pointer group" onclick="openItemModal('${product.id}')"><div><h4 class="font-bold text-xs text-white group-hover:text-blue-400">${product.name}</h4><p class="text-[11px] text-slate-400 mt-1 line-clamp-2">${product.description}</p></div><div class="mt-3 flex items-center justify-between"><span class="font-bold text-sm text-blue-400">R$ ${product.price.toFixed(2)}</span><button class="bg-blue-600 text-white text-[11px] px-2.5 py-1.5 rounded-xl">Add</button></div></div>`;
+                if(product.isHighlight && containers.highlights) containers.highlights.innerHTML += html;
+                if(containers[product.category]) containers[product.category].innerHTML += html;
+            });
+        }
+        function openItemModal(id) {
+            state.modalItem = PRODUCTS_DB.find(p => p.id === id);
+            if(!state.modalItem) return;
+            document.getElementById('modalItemTitle').textContent = state.modalItem.name;
+            document.getElementById('modalItemPrice').textContent = `R$ ${state.modalItem.price.toFixed(2)}`;
+            document.getElementById('modalItemDesc').textContent = state.modalItem.description;
+            document.getElementById('modalItemImage').src = state.modalItem.image;
+            document.getElementById('itemModal').classList.remove('opacity-0', 'pointer-events-none');
+        }
+        function closeItemModal() { document.getElementById('itemModal').classList.add('opacity-0', 'pointer-events-none'); }
+        function confirmAddItemModal() {
+            if(!state.modalItem) return;
+            state.cart.push({ ...state.modalItem, quantity: 1 });
+            closeItemModal();
+            updateCartUI();
+        }
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cartDrawer');
+            drawer.classList.toggle('opacity-0');
+            drawer.classList.toggle('pointer-events-none');
+        }
+        function updateCartUI() {
+            const list = document.getElementById('cartItemsList');
+            list.innerHTML = state.cart.map(i => `<div class="bg-tech-bg p-3 rounded-xl border border-tech-border flex justify-between text-xs"><span>${i.name}</span><span class="font-bold text-blue-400">R$ ${i.price.toFixed(2)}</span></div>`).join('');
+            document.getElementById('headerCartBadge').textContent = state.cart.length;
+            document.getElementById('headerCartBadge').classList.toggle('hidden', state.cart.length === 0);
+            const total = state.cart.reduce((acc, i) => acc + i.price, 0);
+            document.getElementById('floatingCartTotal').textContent = `R$ ${total.toFixed(2)}`;
+        }
+        function submitOrderToWhatsApp() {
+            window.open(`https://wa.me/5567999584289?text=${encodeURIComponent('Hello! I would like to inquire about global IT or Game Dev services from Tavinn TI.')}`, '_blank');
+        }
+        function filterCategory(cat) {
+            document.querySelectorAll('.menu-section').forEach(s => {
+                if(cat === 'todos' || s.id === `section-${cat}`) s.classList.remove('hidden');
+                else s.classList.add('hidden');
+            });
+        }
+        function handleSearch() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            document.querySelectorAll('#highlightsContainer > div').forEach(card => {
+                card.style.display = card.innerText.toLowerCase().includes(q) ? 'flex' : 'none';
+            });
+        }
+        function clearSearch() { document.getElementById('searchInput').value = ''; handleSearch(); }
+    </script>
+</body>
+</html>
