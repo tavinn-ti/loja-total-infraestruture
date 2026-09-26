@@ -1,4 +1,4 @@
-const CACHE_NAME = 'tavinn-ti-pwa-v2';
+const CACHE_NAME = 'tavinn-ti-pwa-v3';
 const GH_PATH = '/loja-total-infraestruture';
 
 const urlsToCache = [
@@ -7,7 +7,8 @@ const urlsToCache = [
   `${GH_PATH}/assets/css/style.css`,
   `${GH_PATH}/assets/js/cart.js`,
   `${GH_PATH}/assets/js/products-db.js`,
-  `${GH_PATH}/assets/img/logo.jpng`
+  `${GH_PATH}/assets/img/icon-192x192.png`,
+  `${GH_PATH}/assets/img/icon-512x512.png`
 ];
 
 // Instalação do Service Worker
