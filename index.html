@@ -8,7 +8,7 @@
     <!-- Configurações PWA -->
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#0d6efd">
-    <link rel="apple-touch-icon" href="./assets/img/logo.jpng">
+    <link rel="apple-touch-icon" href="./assets/img/icon-192x192.png">
 
     <!-- SEO Local Schema.org -->
     <script type="application/ld+json">
@@ -557,49 +557,71 @@
     <script src="assets/js/products-db.js"></script>
     <script src="assets/js/cart.js"></script>
 
-    <!-- Script do PWA & Botão de Instalação Automático -->
+    <!-- Script do PWA & Botão de Instalação Universal (Android, iOS/Safari, Brave) -->
     <script>
-        // Registro do Service Worker
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/loja-total-infraestruture/sw.js')
-                    .then(reg => console.log('Service Worker registrado:', reg.scope))
-                    .catch(err => console.error('Erro ao registrar Service Worker:', err));
-            });
-        }
-
-        // Captura do evento de instalação para exibir o banner
-        let deferredPrompt;
-        const installContainer = document.getElementById('pwa-install-container');
-        const installBtn = document.getElementById('pwa-install-btn');
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            if (installContainer) {
-                installContainer.classList.remove('hidden');
-            }
+      // 1. Registro do Service Worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/loja-total-infraestruture/sw.js')
+            .then(reg => console.log('Service Worker registrado:', reg.scope))
+            .catch(err => console.error('Erro ao registrar Service Worker:', err));
         });
+      }
 
-        if (installBtn) {
-            installBtn.addEventListener('click', async () => {
-                if (deferredPrompt) {
-                    deferredPrompt.prompt();
-                    const { outcome } = await deferredPrompt.userChoice;
-                    if (outcome === 'accepted') {
-                        console.log('PWA instalado com sucesso pelo usuário');
-                    }
-                    deferredPrompt = null;
-                    installContainer.classList.add('hidden');
-                }
-            });
+      // 2. Elementos da Tela
+      let deferredPrompt;
+      const installContainer = document.getElementById('pwa-install-container');
+      const installBtn = document.getElementById('pwa-install-btn');
+
+      // Identifica se é iOS/iPhone
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+      // 3. Suporte para Android / Chrome / Edge
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        if (installContainer) {
+          installContainer.classList.remove('hidden');
         }
+      });
 
-        window.addEventListener('appinstalled', () => {
-            if (installContainer) {
-                installContainer.classList.add('hidden');
+      // 4. Suporte Específico para iPhone (Safari) e Navegadores sem prompt direto
+      window.addEventListener('DOMContentLoaded', () => {
+        if (isIOS) {
+          if (installContainer && installBtn) {
+            installContainer.classList.remove('hidden');
+            installBtn.innerHTML = '📲 Instalar no iPhone (Toque em Compartilhar ➔ Adicionar à Tela de Início)';
+            
+            installBtn.addEventListener('click', () => {
+              alert('Para instalar no iPhone:\n\n1. Toque no botão de "Compartilhar" (ícone com quadrado e seta para cima no rodapé do Safari).\n2. Role para baixo e selecione "Adicionar à Tela de Início".');
+            });
+          }
+        }
+      });
+
+      // 5. Ação ao Clicar no Botão (Android / Chrome / Brave)
+      if (installBtn && !isIOS) {
+        installBtn.addEventListener('click', async () => {
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            if (outcome === 'accepted') {
+              console.log('PWA instalado pelo usuário');
             }
+            deferredPrompt = null;
+            installContainer.classList.add('hidden');
+          } else {
+            // Fallback para Brave e outros navegadores
+            alert('Para instalar neste navegador:\n\n1. Abra o menu do navegador (três pontos ou menu principal).\n2. Procure por "Adicionar à tela inicial" ou "Instalar aplicativo".');
+          }
         });
+      }
+
+      window.addEventListener('appinstalled', () => {
+        if (installContainer) {
+          installContainer.classList.add('hidden');
+        }
+      });
     </script>
 </body>
 </html>
