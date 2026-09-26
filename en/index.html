@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tavinn TI - IT Solutions, Game Dev & Remote Consulting</title>
     
+    <!-- PWA Settings -->
+    <link rel="manifest" href="../manifest.json">
+    <meta name="theme-color" content="#0d6efd">
+
+    <!-- PWA Settings for iOS / Apple -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Tavinn TI">
+    <link rel="apple-touch-icon" href="../assets/img/logo.jpng">
+
     <!-- SEO Local Schema.org -->
     <script type="application/ld+json">
     {
@@ -606,6 +616,17 @@
             document.getElementById('searchInput').value = '';
             handleSearch();
         }
+    </script>
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('../sw.js')
+            .then((reg) => console.log('PWA Service Worker registered!', reg))
+            .catch((err) => console.log('PWA Service Worker error:', err));
+        });
+      }
     </script>
 </body>
 </html>

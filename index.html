@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tavinn TI - Soluções em TI, CFTV & Informática</title>
     
+    <!-- Configurações PWA -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#0d6efd">
+    <link rel="apple-touch-icon" href="./assets/img/logo.jpng">
+
     <!-- SEO Local Schema.org -->
     <script type="application/ld+json">
     {
@@ -61,6 +66,13 @@
 </head>
 <body class="bg-tech-bg text-zinc-100 min-h-screen pb-28 selection:bg-cyan-500 selection:text-slate-950">
 
+    <!-- Banner de Instalação Direta no Telemóvel -->
+    <div id="pwa-install-container" class="hidden bg-cyan-600 text-slate-950 p-3 text-center sticky top-0 z-50 shadow-lg border-b border-cyan-400">
+        <button id="pwa-install-btn" class="bg-slate-950 text-cyan-400 font-bold text-xs sm:text-sm px-4 py-2 rounded-xl shadow hover:bg-slate-900 transition-all">
+            📲 Instalar Aplicativo Tavinn TI
+        </button>
+    </div>
+
     <div class="bg-blue-950/60 border-b border-cyan-500/20 py-2 px-4 text-center text-xs text-slate-300">
         <i class="fa-solid fa-map-location-dot text-cyan-400 mr-1.5"></i> Atendimento presencial focado em <strong>Itahum e região</strong>. Para projetos externos, consulte a taxa de deslocamento.
     </div>
@@ -94,7 +106,7 @@
                     <a href="es/" class="px-2 py-1 text-zinc-400 hover:text-white transition-colors">ES</a>
                 </div>
                 
-                <!-- Link do Instagram substituindo o WhatsApp no Header -->
+                <!-- Link do Instagram -->
                 <a href="https://www.instagram.com/tavinn.ti?stkn=Y3gzMmxiNnM1amJr" target="_blank" class="hidden sm:flex items-center gap-2 text-xs bg-tech-subtle hover:bg-zinc-800 text-zinc-200 px-3 py-2 rounded-xl border border-tech-border transition-colors">
                     <i class="fa-brands fa-instagram text-pink-400 text-sm"></i>
                     <span>@tavinn.ti</span>
@@ -255,7 +267,7 @@
         </div>
     </main>
 
-    <!-- Botão Flutuante do WhatsApp (Acompanha a rolagem) -->
+    <!-- Botão Flutuante do WhatsApp -->
     <a href="https://wa.me/5567999584289" target="_blank" class="fixed bottom-20 right-4 z-40 bg-emerald-600 hover:bg-emerald-500 text-white w-13 h-13 p-3.5 rounded-full flex items-center justify-center shadow-lg shadow-emerald-950/80 transition-all hover:scale-110 active:scale-95" aria-label="Contato WhatsApp">
         <i class="fa-brands fa-whatsapp text-2xl"></i>
     </a>
@@ -544,5 +556,50 @@
 
     <script src="assets/js/products-db.js"></script>
     <script src="assets/js/cart.js"></script>
+
+    <!-- Script do PWA & Botão de Instalação Automático -->
+    <script>
+        // Registro do Service Worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/loja-total-infraestruture/sw.js')
+                    .then(reg => console.log('Service Worker registrado:', reg.scope))
+                    .catch(err => console.error('Erro ao registrar Service Worker:', err));
+            });
+        }
+
+        // Captura do evento de instalação para exibir o banner
+        let deferredPrompt;
+        const installContainer = document.getElementById('pwa-install-container');
+        const installBtn = document.getElementById('pwa-install-btn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            if (installContainer) {
+                installContainer.classList.remove('hidden');
+            }
+        });
+
+        if (installBtn) {
+            installBtn.addEventListener('click', async () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    const { outcome } = await deferredPrompt.userChoice;
+                    if (outcome === 'accepted') {
+                        console.log('PWA instalado com sucesso pelo usuário');
+                    }
+                    deferredPrompt = null;
+                    installContainer.classList.add('hidden');
+                }
+            });
+        }
+
+        window.addEventListener('appinstalled', () => {
+            if (installContainer) {
+                installContainer.classList.add('hidden');
+            }
+        });
+    </script>
 </body>
 </html>
